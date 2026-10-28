@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 -12 188.0 220.0" width="188.0" height="220.0">
+<title>바른 축의대</title>
+<g transform="translate(-18 -13)"><g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<g stroke="#D9BC8C" stroke-width="6.6">
+<path d="M70 25 C42 32 22.5 54 22.5 84 L22.5 201 L87.5 164"/>
+<path d="M87.5 44 L87.5 164"/>
+<path d="M22.5 118 L87.5 92"/>
+<path d="M112.5 38 L112.5 18 C148 20 177.5 40 177.5 76 L177.5 118 L112.5 92 L112.5 164 L177.5 201 L177.5 140"/>
+<path d="M74.5 120 L74.5 138"/>
+<path d="M125.5 120 L125.5 138"/>
+</g>
+</g>
+<path d="M100 168 L154 204 L46 204 Z" fill="#D9BC8C" stroke="#D9BC8C" stroke-width="1" stroke-linejoin="round"/></g>
+</svg>
