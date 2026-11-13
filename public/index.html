@@ -94,38 +94,28 @@
     .header.open .menu-btn span:nth-child(1) { top: 20px; transform: rotate(45deg); }
     .header.open .menu-btn span:nth-child(2) { opacity: 0; }
     .header.open .menu-btn span:nth-child(3) { top: 20px; transform: rotate(-45deg); }
+    .brand { flex: none; }
+    .header .container { justify-content: flex-start; }
+    .nav { margin-left: auto; }
+    .nav-cta { flex: none; margin-left: 28px; padding: 9px 18px; background: var(--champagne); color: var(--green-deep); font-size: 14.5px; font-weight: 700; letter-spacing: .02em; transition: filter .2s; }
+    .nav-cta:hover { filter: brightness(1.07); }
+    .menu-btn { margin-left: 10px; }
+    /* 메뉴가 두 단어라 길어서, 1080px 이하에서는 펼침 메뉴로 전환 */
+    @media (max-width: 1080px) {
+      .menu-btn { display: block; }
+      .nav { position: fixed; top: var(--header-h); left: 0; right: 0; flex-direction: column; gap: 0; background: var(--green); padding: 8px 24px 20px; border-bottom: 1px solid var(--line-light); transform: translateY(-8px); opacity: 0; pointer-events: none; transition: .25s; }
+      .nav a { padding: 14px 0; border-bottom: 1px solid rgba(247,243,236,.12); }
+      .header.open .nav { transform: none; opacity: 1; pointer-events: auto; }
+      .nav-cta { margin-left: auto; padding: 8px 14px; font-size: 13.5px; }
+    }
 
     /* ===== 히어로 ===== */
-    .hero { position: relative; min-height: 100vh; display: flex; align-items: center; padding: calc(var(--header-h) + 40px) 0 72px; background: var(--ivory); overflow: hidden; border-bottom: 1px solid var(--line); }
-    .hero-photo { position: absolute; top: var(--header-h); right: 0; bottom: 0; width: 60%; }
-    .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 55% center; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 30%); mask-image: linear-gradient(to right, transparent 0, #000 30%); }
-    .hero .container { position: relative; width: 100%; }
-    .hero-text { max-width: 470px; text-align: center; }
-    .hero-eyebrow { display: flex; align-items: center; gap: 14px; font-family: var(--serif); font-size: 12px; letter-spacing: .32em; color: var(--gold); margin-bottom: 34px; }
-    .hero-eyebrow::before, .hero-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--line); }
-    .hero-logo { width: 230px; margin: 0 auto; }
-    .hero-divider { display: flex; align-items: center; gap: 12px; margin: 30px auto 26px; max-width: 380px; }
-    .hero-divider::before, .hero-divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
-    .hero-divider i { width: 6px; height: 6px; background: var(--gold); transform: rotate(45deg); }
-    .hero .headline { font-family: var(--serif); font-size: clamp(22px, 2.3vw, 27px); line-height: 1.55; color: var(--green); font-weight: 700; }
-    .hero .desc { margin-top: 12px; font-size: 16px; color: var(--muted); }
-    .values { display: flex; justify-content: center; gap: 26px; margin-top: 34px; }
-    .value { display: flex; flex-direction: column; align-items: center; gap: 10px; font-family: var(--serif); font-size: 15px; font-weight: 700; color: var(--green); }
-    .value .ic { width: 64px; height: 64px; border: 1px solid var(--gold); border-radius: 50%; display: grid; place-items: center; background: rgba(255,253,249,.7); }
-    .value svg { width: 28px; height: 28px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-    .hero-actions { margin-top: 38px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    @media (max-width: 900px) {
-      .hero { display: block; min-height: 0; padding: var(--header-h) 0 64px; }
-      .hero-photo { position: relative; top: 0; width: 100%; height: 74vw; max-height: 480px; }
-      .hero-photo img { -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent); mask-image: linear-gradient(to bottom, #000 70%, transparent); }
-      .hero-text { max-width: 480px; margin: 12px auto 0; }
-      .hero-eyebrow { margin-bottom: 24px; }
-      .hero-logo { width: 190px; }
-      .values { gap: 14px; }
-      .value { font-size: 14px; }
-      .value .ic { width: 56px; height: 56px; }
-      .value svg { width: 24px; height: 24px; }
-    }
+    .hero { min-height: 100vh; display: flex; align-items: center; text-align: center; padding: calc(var(--header-h) + 48px) 0 80px; background: radial-gradient(ellipse at 50% 38%, rgba(217,188,140,.18), transparent 62%), var(--ivory); border-bottom: 1px solid var(--line); }
+    .hero .container { width: 100%; }
+    .hero-logo { width: min(300px, 70vw); margin: 0 auto; }
+    .hero .tagline { margin-top: 40px; font-family: var(--serif); font-size: clamp(22px, 2.8vw, 28px); color: var(--green); font-weight: 700; }
+    .hero .sub { margin-top: 10px; font-family: var(--serif); font-size: 16px; color: var(--gold); letter-spacing: .06em; }
+    .hero-actions { margin-top: 44px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
     /* ===== 브랜드 ===== */
     .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
@@ -185,6 +175,10 @@
     .plan .open b { font-family: var(--serif); font-size: 42px; font-weight: 800; color: var(--green); line-height: 1.2; }
     .plan.featured .open b { color: var(--champagne); }
     .plan .open small { font-size: 16px; }
+    .plan .lowest { font-size: 13.5px; color: var(--muted); margin-top: 6px; }
+    .plan.featured .lowest { color: rgba(247,243,236,.7); }
+    .plan .lowest b { color: var(--green); }
+    .plan.featured .lowest b { color: var(--champagne); }
     .plan ul { list-style: none; flex: 1; }
     .plan li { position: relative; padding-left: 22px; font-size: 15px; margin-bottom: 9px; }
     .plan li::before { content: ''; position: absolute; left: 2px; top: 9px; width: 8px; height: 4px; border-left: 1.5px solid var(--gold); border-bottom: 1.5px solid var(--gold); transform: rotate(-45deg); }
@@ -253,6 +247,9 @@
     .travel { grid-column: 1 / -1; display: none; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; background: rgba(31,61,51,.05); border-left: 3px solid var(--gold); font-size: 14.5px; }
     .travel.show { display: flex; }
     .travel b { color: var(--green); white-space: nowrap; }
+    .travel.warn { background: #fbebeb; border-left-color: #b4534b; }
+    .travel.warn b { color: #a8443c; }
+    .area-note { grid-column: 1 / -1; font-size: 13px; color: var(--muted); margin-top: -4px; }
     .wiz-hint { font-size: 13.5px; color: var(--muted); margin-top: 12px; text-align: center; }
     .wiz-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--ivory-dark); }
     .wiz-back { font: inherit; background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 15px; padding: 8px 4px; }
@@ -282,6 +279,15 @@
     .r-btns .q-btn.alt { background: #fff; color: var(--green); border: 1px solid var(--green); }
     .r-btns .q-btn { font: inherit; font-weight: 700; font-size: 15px; padding: 15px; border: 0; cursor: pointer; background: var(--green); color: var(--ivory); }
     .r-btns .q-again { font: inherit; font-size: 14px; background: none; border: 1px solid var(--line); padding: 11px; cursor: pointer; color: var(--green); }
+    .r-btns .q-btn:disabled { opacity: .35; cursor: not-allowed; }
+    .notice { position: relative; z-index: 1; margin-top: 22px; text-align: left; border: 1px solid var(--ivory-dark); background: #fff; font-size: 12.5px; line-height: 1.55; }
+    .notice .n-title { background: var(--ivory); color: var(--green); font-weight: 700; font-size: 13px; padding: 9px 12px; border-bottom: 1px solid var(--ivory-dark); }
+    .notice dl div { display: grid; grid-template-columns: 74px 1fr; border-bottom: 1px solid var(--ivory-dark); }
+    .notice dt { color: var(--green); font-weight: 700; padding: 7px 12px; }
+    .notice dd { padding: 7px 12px 7px 0; color: var(--charcoal); }
+    .notice .key { font-weight: 700; color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+    .notice .n-link { padding: 8px 12px; text-align: right; }
+    .notice .n-link a { color: var(--green); font-size: 12.5px; }
     .q-toast { font-size: 13px; color: var(--green); min-height: 18px; margin-top: 8px; }
     .r-note { max-width: 440px; margin: 16px auto 0; font-size: 13px; color: var(--muted); text-align: center; }
     @media (max-width: 640px) {
@@ -387,41 +393,28 @@
         <img src="img/barun-horizontal-champagne.svg" alt="바른 축의대">
       </a>
       <nav class="nav" id="nav">
-        <a href="#story">브랜드</a>
-        <a href="#service">서비스</a>
-        <a href="#pricing">가격</a>
-        <a href="#quote">예상 견적</a>
-        <a href="#process">진행 과정</a>
-        <a href="#guarantee">보장</a>
-        <a href="#faq">FAQ</a>
+        <a href="#story">브랜드 소개</a>
+        <a href="#service">서비스 구성</a>
+        <a href="#pricing">상품 가격</a>
+        <a href="#process">진행 절차</a>
+        <a href="#guarantee">보장 범위</a>
+        <a href="#faq">자주 묻는 질문</a>
         <a href="#contact">예약 문의</a>
       </nav>
+      <a href="#quote" class="nav-cta">예상 견적 보기</a>
       <button class="menu-btn" id="menuBtn" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
     </div>
   </header>
 
   <!-- ===== 히어로 ===== -->
   <section class="hero" id="top">
-    <div class="hero-photo">
-      <img src="img/hero-photo.jpg" alt="꽃 장식과 바른 축의대 로고 액자가 놓인 축의대" width="982" height="866">
-    </div>
     <div class="container">
-      <div class="hero-text">
-        <p class="hero-eyebrow">BAREUN WEDDING RECEPTION</p>
-        <h1><img class="hero-logo" src="img/barun-vertical-champagne.svg" alt="바른 축의대"></h1>
-        <div class="hero-divider"><i></i></div>
-        <p class="headline">예비부부와 신혼부부가 함께 만든<br>축의 서비스 브랜드.</p>
-        <p class="desc">바른 마음과 정확한 절차로<br>소중한 축하의 마음을 정직하게 전달합니다.</p>
-        <div class="values">
-          <div class="value"><span class="ic"><svg viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></span>정직</div>
-          <div class="value"><span class="ic"><svg viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></span>정확</div>
-          <div class="value"><span class="ic"><svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>신뢰</div>
-          <div class="value"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg></span>품격</div>
-        </div>
-        <div class="hero-actions">
-          <a href="#quote" class="btn btn-green">예상 견적 보기</a>
-          <a href="#pricing" class="btn btn-line">상품·가격 보기</a>
-        </div>
+      <h1><img class="hero-logo" src="img/barun-vertical-champagne.svg" alt="바른 축의대 BAREUN WEDDING RECEPTION"></h1>
+      <p class="tagline">바른 마음으로, 정확하게.</p>
+      <p class="sub">바르고 정확한 축의 서비스</p>
+      <div class="hero-actions">
+        <a href="#quote" class="btn btn-green">예상 견적 보기</a>
+        <a href="#pricing" class="btn btn-line">상품·가격 보기</a>
       </div>
     </div>
   </section>
@@ -481,7 +474,6 @@
             <div><dt>하객 응대</dt><dd>축의금 접수, 방명록 안내, 식권 배부</dd></div>
             <div><dt>식권 관리</dt><dd>대인·소인 구분, 수령 수량 확인, 배부 실시간 기록, 잔여 수량 대조</dd></div>
             <div><dt>계좌이체 하객</dt><dd>이체내역 확인 후 식권 배부 또는 미확인 배부 중 사전 선택</dd></div>
-            <div><dt>맞춤 안내문</dt><dd>예식에 맞춘 안내문 시안을 D-7에 전달하고 확정</dd></div>
           </dl>
         </div>
         <div class="svc-group">
@@ -506,8 +498,8 @@
       </div>
 
       <div class="deadline">
-        <div><span>자료 송부 · 오전·낮 예식</span><b>예식 당일 오후 5시까지</b></div>
-        <div><span>자료 송부 · 오후 예식</span><b>예식 종료 후 3시간 이내</b></div>
+        <div><span>자료 송부 · 오후 3시 이전 예식</span><b>예식 당일 오후 5시까지</b></div>
+        <div><span>자료 송부 · 오후 3시 이후 예식</span><b>예식 종료 후 3시간 이내</b></div>
       </div>
 
       <h3 class="sub-title">정산 방식</h3>
@@ -552,6 +544,7 @@
           <div class="price">
             <p class="regular">정가 <s>20만 원</s></p>
             <p class="open"><span class="label">오픈가</span><b>18<small>만 원</small></b></p>
+            <p class="lowest">할인 적용 시 최저 <b>15만 원</b></p>
           </div>
           <ul>
             <li>한 측당 봉투 100건까지</li>
@@ -568,6 +561,7 @@
           <div class="price">
             <p class="regular">정가 <s>36만 원</s></p>
             <p class="open"><span class="label">오픈가</span><b>31<small>만 원</small></b></p>
+            <p class="lowest">할인 적용 시 최저 <b>26만 원</b></p>
           </div>
           <ul>
             <li>봉투 200건까지</li>
@@ -584,7 +578,8 @@
           <p class="crew">4인 2팀 · 양측 운영</p>
           <div class="price">
             <p class="regular">정가 <s>68만 원</s></p>
-            <p class="open"><span class="label">오픈가</span><b>55<small>만 원</small></b></p>
+            <p class="open"><span class="label">오픈가</span><b>60<small>만 원</small></b></p>
+            <p class="lowest">할인 적용 시 최저 <b>55만 원</b></p>
           </div>
           <ul>
             <li>한 측당 봉투 200건까지</li>
@@ -677,6 +672,7 @@
             </div>
             <div class="wiz-field addr-box"><label for="qHall">예식장 이름 <small>(선택)</small></label><input type="text" id="qHall" placeholder="예식장 이름"></div>
             <div class="travel" id="travelBox"><span id="travelText"></span><b id="travelFee"></b></div>
+            <p class="area-note">서비스 지역: 부산·울산·대구·경남·경북, 광주·전남·전북</p>
           </div>
         </div>
 
@@ -722,7 +718,7 @@
               <button type="button" class="choice" data-k="plan" data-v="single"><span class="ct">단일</span><span class="cd">2인 1팀 · 200건까지</span><span class="cp"><s>36만</s>31만 원</span></button>
             </div>
             <div class="wiz-grid" id="planBoth" style="display:none">
-              <button type="button" class="choice sel" data-k="plan" data-v="both" tabindex="-1"><span class="ct">양가</span><span class="cd">4인 2팀 · 한 측 200건까지</span><span class="cp"><s>68만</s>55만 원</span></button>
+              <button type="button" class="choice sel" data-k="plan" data-v="both" tabindex="-1"><span class="ct">양가</span><span class="cd">4인 2팀 · 한 측 200건까지</span><span class="cp"><s>68만</s>60만 원</span></button>
             </div>
             <p class="wiz-label">정산 방식</p>
             <div class="wiz-grid c2">
@@ -762,7 +758,17 @@
               <li><span>할인</span><b id="rDc"></b></li>
             </ul>
             <div class="r-pay"><p>계약금 <span id="rDeposit"></span> · 잔금은 예식 전날까지</p><p id="rPayback"></p></div>
-            <div class="r-btns">
+            <div class="notice" role="note" aria-label="개인정보 처리 안내">
+              <p class="n-title">견적 상담을 위해 아래 정보가 처리됩니다</p>
+              <dl>
+                <div><dt>목적</dt><dd>견적 안내와 예약 상담</dd></div>
+                <div><dt>항목</dt><dd>견적 내용(예식일·예식장·상품 등), 카카오톡 프로필, 상담 중 알려 주신 성함·연락처</dd></div>
+                <div><dt>보유 기간</dt><dd><span class="key">상담 종료 후 6개월까지 보관 후 파기</span></dd></div>
+                <div><dt>처리 근거</dt><dd>고객 요청에 따른 계약 체결 과정의 조치 (개인정보 보호법 제15조 제1항 제4호)</dd></div>
+              </dl>
+              <p class="n-link"><a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침 보기</a></p>
+            </div>
+            <div class="r-btns" style="margin-top:12px">
               <div id="kakaoBtns" style="display:grid;gap:10px"></div>
               <button type="button" class="q-again" id="qAgain">처음부터 다시 하기</button>
             </div>
@@ -794,7 +800,6 @@
             <li><span class="when">상담</span><span>카카오 채널로 일정·장소·예상 접수량 확인 후 견적 안내</span></li>
             <li><span class="when">계약</span><span>전자계약서 체결과 계약금 입금으로 예약 확정, 사업자등록증 전달</span></li>
             <li><span class="when">D-14</span><span>인수자·관계 구분·식권 정책·계좌이체 응대·정산 방식·응대 컨셉 사전 설문</span></li>
-            <li><span class="when">D-7</span><span>맞춤 안내문 시안 전달 및 확정</span></li>
             <li><span class="when">D-1</span><span>잔금 완납 확인, 담당자 이름·연락처·도착 예정 시간 안내</span></li>
           </ol>
         </div>
@@ -812,7 +817,7 @@
           <h3>예식 후</h3>
           <ol>
             <li><span class="when">종료 후</span><span>전체 화환 촬영</span></li>
-            <li><span class="when">송부</span><span>엑셀장부·PDF 정산서·영상 링크·화환 사진을 카카오톡으로 송부 (당일 오후 5시까지, 오후 예식은 종료 후 3시간 이내)</span></li>
+            <li><span class="when">송부</span><span>엑셀장부·PDF 정산서·영상 링크·화환 사진을 카카오톡으로 송부 (당일 오후 5시까지, 오후 3시 이후 예식은 종료 후 3시간 이내)</span></li>
             <li><span class="when">발급</span><span>현금영수증 발급</span></li>
             <li><span class="when">후기</span><span>후기 게시글 링크 확인 후 상품별 한도 내 페이백</span></li>
           </ol>
@@ -822,7 +827,6 @@
   </section>
 
   <!-- ===== 보장 ===== -->
-  <!-- TODO: 계약서 법률 검토 및 보험 적용 여부 확인 후 공개 -->
   <section class="guarantee" id="guarantee">
     <div class="container">
       <div class="section-head">
@@ -848,7 +852,7 @@
         <div><b>번호 대조</b>봉투 고유번호와 전자장부 대조</div>
         <div><b>서명 서류</b>인수자 서명 확인서와 PDF 보관</div>
       </div>
-      <p class="note">실제 보상 여부는 영상·장부·서명 서류 등으로 사실관계를 확인해 판단합니다.</p>
+      <p class="note">자세한 책임 범위와 기준은 계약서에 명시되어 있으며, 실제 보상 여부는 영상·장부·서명 서류 등으로 사실관계를 확인해 판단합니다.</p>
     </div>
   </section>
 
@@ -882,7 +886,7 @@
         </details>
         <details>
           <summary>예식이 끝나고 받는 자료는 무엇인가요?</summary>
-          <div class="answer">엑셀장부, PDF 정산서, 영상 링크, 화환 사진을 카카오톡으로 한 번에 보내 드립니다. 오전·낮 예식은 당일 오후 5시까지, 오후 예식은 예식 종료 후 3시간 이내에 보내 드립니다.</div>
+          <div class="answer">엑셀장부, PDF 정산서, 영상 링크, 화환 사진을 카카오톡으로 한 번에 보내 드립니다. 오후 3시 이전에 시작하는 예식은 당일 오후 5시까지, 오후 3시 이후 예식은 예식 종료 후 3시간 이내에 보내 드립니다.</div>
         </details>
         <details>
           <summary>녹화 영상은 얼마나 보관되나요?</summary>
@@ -946,7 +950,7 @@
           <p>상호: 바른축의대(광주전라점)</p>
           <p>사업자등록번호: 517-31-01762</p>
         </div>
-        <p class="f-copy">© 2026 바른 축의대. All rights reserved.</p>
+        <p class="f-copy"><a href="privacy.html" style="color:var(--champagne);font-weight:700;text-decoration:none">개인정보처리방침</a> &nbsp;·&nbsp; © 2026 바른 축의대. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -969,7 +973,7 @@
     const PLANS = {
       light:  { name: '라이트', crew: '1인',     regular: 200000, price: 180000, base: 100, extra: 50000,  deposit: 100000, cap: 30000 },
       single: { name: '단일',   crew: '2인 1팀', regular: 360000, price: 310000, base: 200, extra: 100000, deposit: 100000, cap: 50000 },
-      both:   { name: '양가',   crew: '4인 2팀', regular: 680000, price: 550000, base: 200, extra: 100000, deposit: 200000, cap: 50000 }
+      both:   { name: '양가',   crew: '4인 2팀', regular: 680000, price: 600000, base: 200, extra: 100000, deposit: 200000, cap: 50000 }
     };
     const COUNTS = [{ v: 100, t: '100건 이하' }, { v: 200, t: '101~200건' }, { v: 300, t: '201~300건' }, { v: 301, t: '300건 초과' }];
     const $ = id => document.getElementById(id);
@@ -989,7 +993,7 @@
     ];
     // 광주전라점: 직원 1인당 여비 × 투입 인원(라이트 1인, 단일 2인, 양가 4인)
     const TRAVEL_GWANGJU = [
-      ['광주', '*', 0],
+      ['광주', '*', 0], ['전북', '전주시', 0],
       ['전북', '완주군', 5000], ['전북', '김제시', 10000], ['전북', '익산시', 10000], ['전북', '군산시', 15000],
       ['전북', '정읍시', 20000], ['전북', '남원시', 25000], ['전북', '고창군', 30000],
       ['전남', '화순군', 5000], ['전남', '장성군', 10000], ['전남', '나주시', 10000], ['전남', '담양군', 10000],
@@ -999,6 +1003,8 @@
       ['전남', '순천시', 40000], ['전남', '완도군', 40000], ['전남', '광양시', 45000], ['전남', '여수시', 45000]
     ];
     const NAMAK_FEE = 25000; // 무안군 남악(전남도청) 신도시
+    // 서비스 권역: 이 밖의 지역은 예약 불가
+    const SERVICE_AREA = { '부산경상점': ['부산', '울산', '대구', '경남', '경북'], '광주전라점': ['광주', '전남', '전북'] };
     const STAFF = { light: 1, single: 2, both: 4 };
     const SIDO_SHORT = { '부산광역시': '부산', '울산광역시': '울산', '대구광역시': '대구', '광주광역시': '광주', '경상남도': '경남', '경상북도': '경북',
       '전라남도': '전남', '전라북도': '전북', '전북특별자치도': '전북', '대전광역시': '대전', '서울특별시': '서울', '경기도': '경기' };
@@ -1015,10 +1021,13 @@
         const per = (sgg.startsWith('무안군') && /남악/.test(loc.bname)) ? NAMAK_FEE : g[2];
         return { branch: '광주전라점', label: per ? `1인 여비 ${won(per)}` : '기본 지역', perStaff: per };
       }
-      return { branch: '', label: '상담 필요', consult: true };
+      // 표에 없지만 서비스 권역 안인 지역: 예약 가능, 출장비는 상담 시 안내
+      if (SERVICE_AREA['부산경상점'].includes(sido)) return { branch: '부산경상점', label: '담당', consult: true };
+      if (SERVICE_AREA['광주전라점'].includes(sido)) return { branch: '광주전라점', label: '담당', consult: true };
+      return { branch: '', label: '서비스 지역 아님', unsupported: true };
     }
     function travelFee(t, plan) {
-      if (!t || t.consult) return null;
+      if (!t || t.unsupported || t.consult) return null;
       if ('fixed' in t) return t.fixed;
       return t.perStaff * (STAFF[plan] || 2);
     }
@@ -1027,7 +1036,9 @@
       $('travelBox').classList.toggle('show', !!t);
       if (!t) return;
       const where = [loc.sido, loc.sgg].filter(Boolean).join(' ');
-      if (t.consult) { $('travelText').textContent = `${where} · 출장 가능 여부와 비용은 상담 시 안내해 드려요`; $('travelFee').textContent = '상담 필요'; return; }
+      $('travelBox').classList.toggle('warn', !!t.unsupported);
+      if (t.unsupported) { const w = [loc.sido, loc.sgg].filter(x => x && x !== '기타').join(' '); $('travelText').textContent = `죄송해요. 선택하신 지역${w ? `(${w})` : ''}은 현재 서비스 지역이 아니라 축의대 예약이 어려워요.`; $('travelFee').textContent = '예약 불가'; return; }
+      if (t.consult) { $('travelText').textContent = `${where} · ${t.branch} 담당 · 출장비 기준표에 없는 지역이라 출장비는 업체 문의가 필요해요`; $('travelFee').textContent = '업체 문의 필요'; return; }
       $('travelText').textContent = `${where} · ${t.branch} ${t.label}` + (t.branch === '광주전라점' ? ' (광주전라점 일정이 어려우면 별도 협의)' : '');
       $('travelFee').textContent = 'fixed' in t ? (t.fixed ? won(t.fixed) : '출장비 없음') : (t.perStaff ? '인원에 따라 계산' : '출장비 없음');
     }
@@ -1082,6 +1093,7 @@
     });
 
     function valid(step) {
+      if (step === 1) { const t = findTravel(); return !(t && t.unsupported); }
       if (step === 2) return st.scope === 'both' || (st.scope === 'one' && st.side);
       if (step === 3) return st.g && (st.scope === 'one' || st.b);
       if (step === 4) return st.plan && st.settle;
@@ -1152,17 +1164,17 @@
       const r = compute();
       $('rMeta').textContent = meta();
       $('rTotal').textContent = won(r.total);
-      $('rSel').textContent = `${r.p.name} · ${st.settle}` + (st.scope === 'one' ? ` · ${st.side}` : '') + (r.t && !r.t.consult ? ` · ${r.t.branch}` : '');
+      $('rSel').textContent = `${r.p.name} · ${st.settle}` + (st.scope === 'one' ? ` · ${st.side}` : '') + (r.t && !r.t.unsupported ? ` · ${r.t.branch}` : '');
       $('rBase').innerHTML = `<s>${won(r.p.regular)}</s>${won(r.p.price)}`;
       $('rExtra').textContent = r.extra ? `+${won(r.extra)}` : '0원';
       $('rDc').textContent = r.dc ? `-${won(r.dc)}` + (r.dcRaw > r.dc ? ' (한도 적용)' : '') : '0원';
       $('rDeposit').textContent = won(r.p.deposit);
-      const br = r.t && !r.t.consult ? r.t.branch : null;
+      const br = r.t && !r.t.unsupported ? r.t.branch : null;
       $('kakaoBtns').innerHTML = br
         ? `<button type="button" class="q-btn" data-url="${KAKAO[br]}">견적 복사하고 ${br} 카톡 상담하기</button>`
         : Object.keys(KAKAO).map((b, i) => `<button type="button" class="q-btn${i ? ' alt' : ''}" data-url="${KAKAO[b]}">견적 복사하고 ${b} 카톡 상담</button>`).join('');
-      $('rTravel').textContent = r.travel === null ? '상담 시 안내' : (r.travel ? `+${won(r.travel)}` : '없음');
-      $('rNote').textContent = (r.travel === null ? '출장비를 제외한 예상 금액입니다. ' : '출장비를 포함한 예상 금액입니다. ') + '오픈가는 정규 운영 시작일부터 3개월간 적용되며, 최종 금액은 상담 후 확정됩니다.';
+      $('rTravel').textContent = r.travel === null ? '업체 문의 필요' : (r.travel ? `+${won(r.travel)}` : '없음');
+      $('rNote').textContent = (r.travel === null ? '출장비는 업체 문의가 필요해 제외한 예상 금액입니다. ' : '출장비를 포함한 예상 금액입니다. ') + '오픈가는 정규 운영 시작일부터 3개월간 적용되며, 최종 금액은 상담 후 확정됩니다.';
       $('rPayback').textContent = (r.payback ? `본식 후기 할인 ${won(r.payback)}은 예식 후 페이백됩니다. ` : '') + (r.consult ? '300건 초과 예식은 상담 시 따로 안내해 드립니다.' : '');
     }
 
@@ -1188,6 +1200,10 @@
     });
     $('kakaoBtns').addEventListener('click', e => {
       const btn = e.target.closest('.q-btn'); if (!btn) return;
+      sendQuote(btn.dataset.url);
+    });
+
+    function sendQuote(url) {
       const r = compute(), d = $('qDate').value;
       const text = [
         '[바른 축의대 예상 견적]',
@@ -1198,7 +1214,7 @@
         `봉투 접수량: ${r.sides.map(([s, n]) => `${s} ${COUNTS.find(c => c.v === n).t}`).join(', ')}`,
         `정산 방식: ${st.settle}`,
         `할인: ${r.dcNames.length ? r.dcNames.join(', ') : '없음'}`,
-        `출장비: ${r.travel === null ? '상담 필요' : won(r.travel)}`,
+        `출장비: ${r.travel === null ? '업체 문의 필요' : won(r.travel)}`,
         `예상 합계: ${won(r.total)}${r.travel === null ? ' (출장비 별도)' : ' (출장비 포함)'}`
       ].join('\n');
       // 복사를 먼저 시작한 뒤 상담창을 엽니다 (새 창이 먼저 뜨면 복사가 막힐 수 있음)
@@ -1210,8 +1226,8 @@
         try { ok = document.execCommand('copy'); } catch (e2) { ok = false; } ta.remove();
       }
       $('qToast').textContent = ok ? '견적이 복사되었어요. 카카오톡 상담창에 붙여넣어 주세요.' : '복사가 되지 않았어요. 화면을 캡처해 보내 주세요.';
-      window.open(btn.dataset.url, '_blank', 'noopener');
-    });
+      window.open(url, '_blank', 'noopener');
+    }
     render();
   </script>
 </body>
