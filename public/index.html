@@ -132,28 +132,48 @@
     .promise .eyebrow { color: var(--champagne); }
     .promise .section-title { color: var(--ivory); }
     .promise .section-desc { color: rgba(247,243,236,.7); }
-    .promise-list { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); }
-    .promise-item { padding: 44px 20px; text-align: center; }
+    .promise-list { display: grid; grid-template-columns: repeat(5, 1fr); max-width: 1040px; margin: 0 auto; border-top: 1px solid var(--line-light); border-bottom: 1px solid var(--line-light); }
+    .promise-item { padding: 40px 14px; text-align: center; }
     .promise-item + .promise-item { border-left: 1px solid var(--line-light); }
-    .promise-item .n { font-family: var(--serif); font-size: 15px; color: var(--champagne); }
-    .promise-item h3 { font-family: var(--serif); font-size: 22px; margin: 10px 0; color: var(--champagne); }
-    .promise-item p { font-size: 14.5px; opacity: .82; }
+    .promise-item .n { font-family: var(--serif); font-size: 14px; color: var(--champagne); opacity: .8; letter-spacing: .1em; }
+    .promise-item h3 { font-family: var(--serif); font-size: 22px; margin-top: 10px; color: var(--champagne); }
 
     /* ===== 서비스 구성 ===== */
-    .svc-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .svc-group { background: var(--paper); padding: 36px 30px; border-top: 2px solid var(--gold); }
-    .svc-group h3 { font-family: var(--serif); font-size: 21px; color: var(--green); margin-bottom: 4px; }
-    .svc-group .en { font-size: 12px; letter-spacing: .2em; color: var(--gold); margin-bottom: 22px; }
-    .svc-group dl div { padding: 14px 0; border-top: 1px solid var(--ivory-dark); }
-    .svc-group dt { font-weight: 600; color: var(--green); font-size: 15.5px; }
-    .svc-group dd { font-size: 14.5px; color: var(--muted); margin-top: 4px; }
-    .deadline { margin-top: 24px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .deadline div { background: var(--ivory-dark); padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-    .deadline span { color: var(--muted); font-size: 14.5px; }
-    .deadline b { font-family: var(--serif); color: var(--green); font-size: 17px; }
+    .svc-groups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1080px; margin: 0 auto; }
+    .svc-group { background: var(--paper); padding: 38px 34px 40px; border-top: 2px solid var(--gold); display: flex; flex-direction: column; }
+    .svc-group .head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding-bottom: 22px; margin-bottom: 24px; border-bottom: 1px solid var(--ivory-dark); }
+    .svc-group .num { font-family: var(--serif); font-size: 34px; line-height: 1; color: var(--gold); opacity: .55; }
+    .svc-group h3 { font-family: var(--serif); font-size: 22px; color: var(--green); margin-bottom: 4px; }
+    .svc-group .en { font-size: 11px; letter-spacing: .2em; color: var(--gold); }
+    .svc-group dl { display: flex; flex-wrap: wrap; gap: 10px; }
+    .svc-group dl div { padding: 12px 18px; background: var(--ivory); border: 1px solid var(--ivory-dark); display: flex; align-items: center; gap: 8px; }
+    .svc-group dl div::before { content: ""; width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); flex: none; }
+    .svc-group dt { font-weight: 500; color: var(--green); font-size: 15.5px; }
+    .svc-more { max-width: 1080px; margin: 0 auto; }
+    .deadline { margin: 24px auto 0; max-width: 1080px; display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .settle { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 0; background: var(--green); padding: 10px; }
+    .settle .opt { position: relative; background: var(--green-deep); border: 1px solid rgba(217,188,140,.35); padding: 30px 20px 26px; text-align: center; }
+    .settle h4 { font-family: var(--serif); font-size: 25px; color: var(--champagne); }
+    .settle .opt p { margin-top: 6px; font-size: 14px; color: rgba(247,243,236,.75); }
+    .settle .tag { position: absolute; top: -1px; right: -1px; background: var(--champagne); color: var(--green-deep); font-size: 12px; font-weight: 700; padding: 4px 10px; }
+    .settle .or { align-self: center; padding: 0 16px; font-family: var(--serif); font-size: 15px; color: var(--champagne); }
+    .settle-cap { margin-top: 14px; font-size: 15px; color: var(--charcoal); }
+    .settle-cap b { color: var(--green); }
+    @media (max-width: 640px) {
+      .settle { grid-template-columns: 1fr; }
+      .settle .or { padding: 6px 0; text-align: center; }
+      .settle .opt { padding: 22px 16px 20px; }
+      .settle h4 { font-size: 22px; }
+    }
+    .deadline small { font-family: var(--sans); font-size: 13px; color: rgba(247,243,236,.7); font-weight: 400; }
+    .deadline div { background: var(--green); padding: 22px 34px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .deadline span { color: var(--champagne); letter-spacing: .05em; font-size: 14.5px; }
+    .deadline b { font-family: var(--serif); color: var(--ivory); font-size: 17px; }
 
     /* ===== 가격 ===== */
     .pricing { background: var(--paper); }
+    #process { background: var(--paper); }
+    #process .phase { background: var(--ivory); }
     .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
     .plan { background: var(--ivory); padding: 44px 32px; display: flex; flex-direction: column; border: 1px solid var(--ivory-dark); position: relative; }
     .plan.featured { background: var(--green); color: var(--ivory); border-color: var(--green); }
@@ -188,11 +208,14 @@
     .common { margin-top: 28px; padding: 24px 28px; background: var(--ivory); border: 1px dashed var(--line); font-size: 15px; }
     .common b { color: var(--green); margin-right: 10px; }
 
-    .discount-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-    .discount { background: var(--ivory); padding: 24px 18px; text-align: center; border: 1px solid var(--ivory-dark); }
-    .discount .amt { font-family: var(--serif); font-size: 26px; font-weight: 800; color: var(--gold); }
-    .discount h4 { font-size: 15.5px; color: var(--green); margin: 6px 0 6px; }
-    .discount p { font-size: 13.5px; color: var(--muted); }
+    .disc { max-width: 720px; background: var(--ivory); border: 1px solid var(--ivory-dark); padding: 10px 32px 22px; }
+    .disc ul { display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; }
+    .disc li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--ivory-dark); }
+    .disc li span { color: var(--green); font-weight: 500; font-size: 15.5px; }
+    .disc li small { color: var(--muted); font-weight: 400; font-size: 12.5px; }
+    .disc li b { font-family: var(--serif); color: var(--gold); font-size: 19px; white-space: nowrap; }
+    .disc p { margin-top: 16px; font-size: 14px; color: var(--muted); }
+    .disc p b { color: var(--green); }
     .bullets { list-style: none; margin-top: 18px; font-size: 14.5px; color: var(--charcoal); }
     .bullets li { padding-left: 14px; position: relative; }
     .bullets li + li { margin-top: 6px; }
@@ -233,8 +256,35 @@
     .wiz-field label { font-size: 14px; font-weight: 600; }
     .wiz-field label small { font-weight: 400; color: var(--muted); }
     .wiz-field input, .wiz-field select { font: inherit; font-size: 15px; padding: 12px; border: 1px solid var(--ivory-dark); background: #fff; color: var(--charcoal); border-radius: 0; width: 100%; }
+    .wiz-field { min-width: 0; }
+    .wiz-field input, .wiz-field select { box-sizing: border-box; max-width: 100%; min-width: 0; }
+    .wiz-field input[type="date"], .wiz-field input[type="time"] { -webkit-appearance: none; appearance: none; display: block; min-height: 49px; line-height: 1.4; text-align: left; }
+    .wiz-field input::-webkit-date-and-time-value { text-align: left; margin: 0; }
     .wiz-field input:focus, .wiz-field select:focus, .choice:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
     .addr-box { grid-column: 1 / -1; }
+    .date-field { position: relative; }
+    .date-field input { cursor: pointer; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' stroke='%231F3D33' stroke-width='1.6' viewBox='0 0 24 24'%3E%3Crect x='3' y='5' width='18' height='16' rx='1'/%3E%3Cpath d='M3 10h18M8 3v4M16 3v4'/%3E%3C/svg%3E") no-repeat right 14px center; }
+    .date-note { display: none; margin-top: 2px; font-size: 13.5px; padding: 9px 12px; border-left: 3px solid; }
+    .date-note.show { display: block; }
+    .date-note.ok { color: var(--green); background: #EEF2EC; border-color: var(--green); }
+    .date-note.ask { color: #8A5A1E; background: #FBF3E6; border-color: var(--gold); }
+    .cal-grid .day.ask:not(:disabled) { text-decoration: underline dotted var(--gold); text-underline-offset: 4px; }
+    .cal { display: none; position: absolute; top: 100%; left: 0; z-index: 30; margin-top: 6px; width: 100%; max-width: 340px; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 18px 40px -18px rgba(31,61,51,.35); padding: 14px 14px 12px; }
+    .cal.open { display: block; }
+    .cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .cal-head b { font-family: var(--serif); font-size: 17px; color: var(--green); }
+    .cal-head button { width: 34px; height: 34px; border: 1px solid var(--ivory-dark); background: #fff; color: var(--green); font-size: 16px; cursor: pointer; }
+    .cal-head button:disabled { opacity: .3; cursor: default; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; text-align: center; }
+    .cal-grid .dw { font-size: 12px; color: var(--muted); padding: 4px 0; }
+    .cal-grid .dw.sun, .cal-grid .day.red { color: #B4534A; }
+    .cal-grid .dw.sat, .cal-grid .day.blue { color: #3F6A9A; }
+    .cal-grid .day { height: 38px; border: 0; background: transparent; font: inherit; font-size: 14.5px; color: var(--charcoal); cursor: pointer; }
+    .cal-grid .day:not(:disabled):hover { background: var(--ivory); }
+    .cal-grid .day:disabled { color: #CFCAC0; cursor: default; }
+    .cal-grid .day.sel { background: var(--green); color: var(--ivory); }
+    .cal-note { margin-top: 8px; font-size: 12.5px; color: var(--muted); }
+
     .addr-row { display: flex; gap: 8px; }
     .addr-row input { flex: 1; background: var(--ivory) !important; cursor: pointer; }
     .addr-btn { font: inherit; font-weight: 700; font-size: 14.5px; background: var(--green); color: var(--ivory); border: 0; padding: 0 20px; cursor: pointer; white-space: nowrap; }
@@ -249,6 +299,9 @@
     .travel b { color: var(--green); white-space: nowrap; }
     .travel.warn { background: #fbebeb; border-left-color: #b4534b; }
     .travel.warn b { color: #a8443c; }
+    .travel.pend { background: #FBF3E6; border-left-color: var(--gold); }
+    .travel.pend b { color: #8A5A1E; font-size: 14px; }
+    .addr-manual select.need { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(217,188,140,.35); }
     .area-note { grid-column: 1 / -1; font-size: 13px; color: var(--muted); margin-top: -4px; }
     .wiz-hint { font-size: 13.5px; color: var(--muted); margin-top: 12px; text-align: center; }
     .wiz-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--ivory-dark); }
@@ -356,11 +409,13 @@
 
     /* ===== 반응형 ===== */
     @media (max-width: 1000px) {
-      .promise-list { grid-template-columns: repeat(2, 1fr); }
-      .promise-item { border-left: 0 !important; border-bottom: 1px solid var(--line-light); }
-      .promise-item:last-child { grid-column: 1 / -1; border-bottom: 0; }
+      .promise-list { grid-template-columns: repeat(6, 1fr); gap: 8px; max-width: 460px; border: 0; }
+      .promise-item { grid-column: span 2; padding: 22px 6px 20px; border: 1px solid var(--line-light) !important; background: rgba(247,243,236,.03); }
+      .promise-item:nth-child(n+4) { grid-column: span 3; }
+      .promise-item .n { font-size: 12.5px; }
+      .promise-item h3 { margin-top: 6px; font-size: 18px; white-space: nowrap; }
       .svc-groups, .phases { grid-template-columns: 1fr; max-width: 640px; margin: 0 auto; }
-      .discount-grid { grid-template-columns: repeat(3, 1fr); }
+      .deadline { max-width: 640px; }
     }
     @media (max-width: 820px) {
       :root { --header-h: 64px; }
@@ -375,12 +430,58 @@
       .story-grid { gap: 40px; }
       .story-photo { max-width: 420px; margin: 0 auto; }
       .plans { gap: 36px; }
-      .discount-grid { grid-template-columns: repeat(2, 1fr); }
-      .discount:last-child { grid-column: 1 / -1; }
+      .disc { padding: 6px 20px 18px; }
+      .disc ul { grid-template-columns: 1fr; }
+      .disc p b { display: block; margin-top: 4px; }
       .sub-title { margin-top: 56px; }
       th, td { padding: 14px 14px; font-size: 14px; }
       tbody th { white-space: normal; }
       .section-head { margin-bottom: 44px; }
+    }
+
+    /* ===== 반응형 보정 (태블릿·PC) ===== */
+    .svc-more .bullets li b { font-weight: 600; color: var(--green); }
+    .svc-more .bullets li b::after { content: ': '; }
+    @media (min-width: 641px) {
+      /* 다섯 가지 약속: 타일형 */
+      .promise-list { gap: 14px; max-width: 1080px; border: 0; }
+      .promise-item, .promise-item + .promise-item { border: 1px solid var(--line-light); padding: 40px 12px 38px; background: rgba(247,243,236,.03); }
+      .promise-item .n { display: block; font-size: 30px; line-height: 1; opacity: .5; letter-spacing: 0; }
+      .promise-item h3 { position: relative; margin-top: 30px; }
+      .promise-item h3::before { content: ''; position: absolute; left: 50%; top: -16px; width: 22px; height: 1px; background: var(--champagne); opacity: .6; transform: translateX(-50%); }
+      /* 서비스 카드: 항목을 세로 목록으로 */
+      .svc-group dl { flex-direction: column; flex-wrap: nowrap; gap: 0; }
+      .svc-group dl div { background: transparent !important; border: 0; border-bottom: 1px solid var(--ivory-dark); padding: 14px 2px; }
+      .svc-group dl div:last-child { border-bottom: 0; }
+      /* 할인 혜택: 상품 카드와 같은 너비, 가로 배치 */
+      .disc { max-width: none; padding: 0; }
+      .disc ul { grid-template-columns: repeat(4, 1fr); column-gap: 0; }
+      .disc li { flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 8px; padding: 28px 12px 24px; border-bottom: 0; }
+      .disc li + li { border-left: 1px solid var(--ivory-dark); }
+      .disc li small { display: block; margin-top: 4px; }
+      .disc li b { font-size: 24px; }
+      .disc p { margin: 0; padding: 14px 20px; text-align: center; border-top: 1px solid var(--ivory-dark); }
+    }
+    @media (min-width: 641px) and (max-width: 1000px) {
+      .promise-list { max-width: 640px; }
+      .promise-item, .promise-item + .promise-item { padding: 30px 10px 28px; }
+      .svc-more { max-width: 640px; }
+    }
+    @media (min-width: 641px) and (max-width: 860px) {
+      .disc ul { grid-template-columns: repeat(2, 1fr); }
+      .disc li:nth-child(3) { border-left: 0; }
+      .disc li:nth-child(n+3) { border-top: 1px solid var(--ivory-dark); }
+    }
+    @media (min-width: 1024px) {
+      /* 정산 방식 + 미리 정해 두는 것들: 2단 */
+      .svc-more { display: grid; grid-template-columns: 1.25fr 1fr; gap: 56px; align-items: start; }
+      .svc-more .bullets { margin-top: 0; background: var(--paper); border-top: 2px solid var(--gold); padding: 6px 28px; }
+      .svc-more .bullets li { padding: 15px 0; border-bottom: 1px solid var(--ivory-dark); display: flex; gap: 14px; }
+      .svc-more .bullets li + li { margin-top: 0; }
+      .svc-more .bullets li:last-child { border-bottom: 0; }
+      .svc-more .bullets li::before { display: none; }
+      .svc-more .bullets li b { flex: none; width: 84px; }
+      .svc-more .bullets li b::after { content: none; }
     }
   </style>
 </head>
@@ -394,8 +495,8 @@
       </a>
       <nav class="nav" id="nav">
         <a href="#story">브랜드 소개</a>
-        <a href="#service">서비스 구성</a>
         <a href="#pricing">상품 가격</a>
+        <a href="#service">서비스 구성</a>
         <a href="#process">진행 절차</a>
         <a href="#guarantee">보장 범위</a>
         <a href="#faq">자주 묻는 질문</a>
@@ -432,7 +533,6 @@
           <p>바른 축의대는 결혼을 준비하는 예비부부와 신혼부부가 함께 만든 축의 서비스 브랜드입니다.</p>
           <p>실제 축의대 대행 현장 경험을 바탕으로 가격을 투명하게 공개하고, 봉투 고유번호와 전자장부, 서명 인계까지 표준 절차로 운영합니다.</p>
           <p>가족과 친구들이 축의대가 아닌 예식에 머물 수 있도록, 소중한 날의 첫인상을 정중하게 맞이하겠습니다.</p>
-          <div class="tags"><span>정직한 가격</span><span>정확한 기록</span><span>품격 있는 응대</span></div>
         </div>
       </div>
     </div>
@@ -447,82 +547,12 @@
         <p class="section-desc">가격은 투명하게, 관리는 빈틈없이.</p>
       </div>
       <div class="promise-list">
-        <div class="promise-item"><div class="n">01</div><h3>바른 가격</h3><p>정가·오픈가 공개,<br>계약 전 총액 안내</p></div>
-        <div class="promise-item"><div class="n">02</div><h3>바른 절차</h3><p>봉투 고유번호·전자장부·<br>서명 인계</p></div>
-        <div class="promise-item"><div class="n">03</div><h3>바른 사람</h3><p>모의접수·현장 참관 후<br>투입, 숙련자 매칭</p></div>
-        <div class="promise-item"><div class="n">04</div><h3>바른 기록</h3><p>접수부터 인계까지<br>영상 녹화·3개월 보관</p></div>
-        <div class="promise-item"><div class="n">05</div><h3>바른 마음</h3><p>원하는 응대 컨셉에<br>맞춘 정중한 응대</p></div>
+        <div class="promise-item"><div class="n">01</div><h3>바른 가격</h3></div>
+        <div class="promise-item"><div class="n">02</div><h3>바른 절차</h3></div>
+        <div class="promise-item"><div class="n">03</div><h3>바른 사람</h3></div>
+        <div class="promise-item"><div class="n">04</div><h3>바른 기록</h3></div>
+        <div class="promise-item"><div class="n">05</div><h3>바른 마음</h3></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== 서비스 구성 ===== -->
-  <section id="service">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Service</p>
-        <h2 class="section-title">접수부터 사후 자료까지, 한 번에</h2>
-        <p class="section-desc">현장 응대, 기록과 정산, 예식 후 자료 전달까지 모든 상품에 기본으로 포함됩니다.</p>
-        <div class="divider"></div>
-      </div>
-
-      <div class="svc-groups">
-        <div class="svc-group">
-          <h3>현장 응대</h3>
-          <p class="en">RECEPTION</p>
-          <dl>
-            <div><dt>하객 응대</dt><dd>축의금 접수, 방명록 안내, 식권 배부</dd></div>
-            <div><dt>식권 관리</dt><dd>대인·소인 구분, 수령 수량 확인, 배부 실시간 기록, 잔여 수량 대조</dd></div>
-            <div><dt>계좌이체 하객</dt><dd>이체내역 확인 후 식권 배부 또는 미확인 배부 중 사전 선택</dd></div>
-          </dl>
-        </div>
-        <div class="svc-group">
-          <h3>기록 · 정산</h3>
-          <p class="en">RECORD &amp; SETTLEMENT</p>
-          <dl>
-            <div><dt>봉투 고유번호</dt><dd>모든 봉투에 번호 부여. 라이트는 즉시 밀봉, 단일·양가는 번호 스티커 부착</dd></div>
-            <div><dt>전자장부</dt><dd>노트북·태블릿으로 번호·성함·금액·관계·대인/소인·답례 기록</dd></div>
-            <div><dt>정산·인계확인서</dt><dd>A4 한 장 확인서에 기록하고, 인수자 서명 후 전달</dd></div>
-            <div><dt>축의금 보관</dt><dd>자체 제작 보관가방에 안전하게 보관</dd></div>
-          </dl>
-        </div>
-        <div class="svc-group">
-          <h3>예식 후 자료</h3>
-          <p class="en">AFTER SERVICE</p>
-          <dl>
-            <div><dt>영상 기록</dt><dd>한 측당 카메라 1대로 접수부터 인계까지 녹화, 유튜브 비공개 링크 전달</dd></div>
-            <div><dt>화환 촬영</dt><dd>예식 종료 후 전체 화환 사진 촬영·전달</dd></div>
-            <div><dt>카카오톡 자료 패키지</dt><dd>엑셀장부, PDF 정산서, 영상 링크, 화환 사진 일괄 송부</dd></div>
-          </dl>
-        </div>
-      </div>
-
-      <div class="deadline">
-        <div><span>자료 송부 · 오후 3시 이전 예식</span><b>예식 당일 오후 5시까지</b></div>
-        <div><span>자료 송부 · 오후 3시 이후 예식</span><b>예식 종료 후 3시간 이내</b></div>
-      </div>
-
-      <h3 class="sub-title">정산 방식</h3>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>방식</th><th class="center">라이트</th><th class="center">단일</th><th class="center">양가</th></tr>
-          </thead>
-          <tbody>
-            <tr><th>① 밀봉형<br><small style="font-weight:400;color:var(--muted)">금액 미확인</small></th><td class="center yes">고정</td><td class="center yes">선택 가능</td><td class="center yes">선택 가능</td></tr>
-            <tr><th>② 권종별 계수형<br><small style="font-weight:400;color:var(--muted)">현금 분리·권종별 계수</small></th><td class="center no">—</td><td class="center yes">선택 가능</td><td class="center yes">선택 가능</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="note">밀봉형은 확인하지 않은 축의금 금액을 장부나 정산서에 임의로 기재하지 않습니다.</p>
-
-      <h3 class="sub-title">미리 정해 두는 것들</h3>
-      <ul class="bullets">
-        <li>응대 컨셉: 지인·친구처럼 자연스럽게 응대하는 방식도 선택할 수 있습니다.</li>
-        <li>추가 식권 요청: 혼주 확인 후 배부 / 지정 수량 내 배부 / 10장 이상 요청 시 확인 / 기타 협의 중 선택합니다.</li>
-        <li>식권은 예식 당일 예식장에서 받아 수량을 확인하며, 부족 시 양가 간 대여 등은 사전에 협의합니다.</li>
-        <li>예식장에서 축의대에 맡기는 물품의 보관·인계는 계약 후 협의합니다.</li>
-      </ul>
     </div>
   </section>
 
@@ -547,240 +577,121 @@
             <p class="lowest">할인 적용 시 최저 <b>15만 원</b></p>
           </div>
           <ul>
-            <li>한 측당 봉투 100건까지</li>
-            <li>봉투 고유번호 · 즉시 밀봉</li>
-            <li>밀봉형 정산 (금액 미확인)</li>
+            <li>한 측 100건까지</li>
+            <li>밀봉형 정산</li>
           </ul>
-          <p class="fit">소규모·야외 예식에 추천 · 100건 초과 시 한 측 5만 원 추가</p>
-        </div>
-
-        <div class="plan">
-          <p class="tier">SINGLE</p>
-          <h3>단일</h3>
-          <p class="crew">2인 1팀 · 한 측 운영</p>
-          <div class="price">
-            <p class="regular">정가 <s>36만 원</s></p>
-            <p class="open"><span class="label">오픈가</span><b>31<small>만 원</small></b></p>
-            <p class="lowest">할인 적용 시 최저 <b>26만 원</b></p>
-          </div>
-          <ul>
-            <li>봉투 200건까지</li>
-            <li>봉투 고유번호 스티커</li>
-            <li>정산 방식 2종 중 선택</li>
-          </ul>
-          <p class="fit">신랑 측 또는 신부 측 단독 운영 · 200건 초과 시 10만 원 추가</p>
+          <p class="fit">초과 시 한 측 5만 원 추가</p>
         </div>
 
         <div class="plan featured">
           <span class="badge">양가 동시 운영</span>
           <p class="tier">BOTH SIDES</p>
           <h3>양가</h3>
-          <p class="crew">4인 2팀 · 양측 운영</p>
+          <p class="crew">4인 · 양측 운영</p>
           <div class="price">
             <p class="regular">정가 <s>68만 원</s></p>
             <p class="open"><span class="label">오픈가</span><b>60<small>만 원</small></b></p>
             <p class="lowest">할인 적용 시 최저 <b>55만 원</b></p>
           </div>
           <ul>
-            <li>한 측당 봉투 200건까지</li>
-            <li>신랑·신부 측 분리 접수·정산</li>
-            <li>정산 방식 2종 중 선택</li>
+            <li>한 측 200건까지</li>
+            <li>정산 방식 선택</li>
           </ul>
-          <p class="fit">양가 모두 운영하는 예식 · 한 측 200건 초과 시 10만 원 추가</p>
+          <p class="fit">초과 시 한 측 10만 원 추가</p>
+        </div>
+
+        <div class="plan">
+          <p class="tier">SINGLE</p>
+          <h3>단일</h3>
+          <p class="crew">2인 · 한 측 운영</p>
+          <div class="price">
+            <p class="regular">정가 <s>36만 원</s></p>
+            <p class="open"><span class="label">오픈가</span><b>31<small>만 원</small></b></p>
+            <p class="lowest">할인 적용 시 최저 <b>28만 원</b></p>
+          </div>
+          <ul>
+            <li>200건까지</li>
+            <li>정산 방식 선택</li>
+          </ul>
+          <p class="fit">초과 시 10만 원 추가</p>
         </div>
       </div>
 
-      <p class="common"><b>모든 상품 공통</b>전자장부 · 식권 관리 · 정산·인계확인서 · 영상 기록 · 화환 촬영 · 카카오톡 자료 패키지</p>
-
-      <h3 class="sub-title">결제 · 부대비용</h3>
-      <div class="table-wrap">
-        <table>
-          <tbody>
-            <tr><th>계약금</th><td>라이트·단일 10만 원 / 양가 20만 원</td></tr>
-            <tr><th>예약 확정</th><td>전자계약서 체결과 계약금 입금이 모두 완료되면 확정됩니다.</td></tr>
-            <tr><th>잔금</th><td>예식 전날까지 계약금을 제외한 잔액을 완납해 주세요. 전액 결제 후 서비스가 진행됩니다.</td></tr>
-            <tr><th>추가 접수</th><td>단일·양가: 한 측 200건 초과 시 10만 원 / 라이트: 한 측 100건 초과 시 5만 원</td></tr>
-            <tr><th>출장비</th><td>지역별 추가 요금이 있으며, 상담 시 안내해 드립니다. <!-- TODO: 지역별 출장비 확정 후 기재 --></td></tr>
-            <tr><th>현금영수증</th><td>관련 법령에 따라 발급합니다.</td></tr>
-          </tbody>
-        </table>
-      </div>
-
       <h3 class="sub-title">할인 혜택</h3>
-      <div class="discount-grid">
-        <div class="discount"><div class="amt">1만 원</div><h4>당일 계약</h4><p>최초 상담 당일 계약 시</p></div>
-        <div class="discount"><div class="amt">1만 원</div><h4>짝꿍 소개 · 소개받은 분</h4><p>소개로 계약 체결 시</p></div>
-        <div class="discount"><div class="amt">1만 원</div><h4>짝꿍 소개 · 소개한 분</h4><p>소개한 지인의 계약 성사 시</p></div>
-        <div class="discount"><div class="amt">2만 원</div><h4>계약 후기</h4><p>네이버 블로그 또는 인스타그램 게시글</p></div>
-        <div class="discount"><div class="amt">2만 원</div><h4>본식 후기</h4><p>예식 후 한 달 이내 블로그 또는 인스타그램 게시글</p></div>
-      </div>
-      <ul class="bullets">
-        <li>할인은 중복 적용되며, 상품별 할인 한도는 <b>라이트 3만 원, 단일·양가 5만 원</b>입니다.</li>
-        <li>계약 후기와 본식 후기는 각각 인정되어, 모두 작성하시면 4만 원이 할인됩니다.</li>
-        <li>후기는 링크를 전달해 주시고, 게시일로부터 최소 1개월 유지해 주세요.</li>
-        <li>본식 후기는 확인 후 페이백, 그 외 할인은 잔금에서 차감합니다. 이미 완납하신 경우 확인 후 페이백해 드립니다.</li>
-      </ul>
-
-      <h3 class="sub-title">취소 · 환불</h3>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>취소 시점</th><th>기본금액 기준</th></tr></thead>
-          <tbody>
-            <tr><th>예식 60일 전까지</th><td>전액 환불</td></tr>
-            <tr><th>예식 59~30일 전</th><td>50% 환불</td></tr>
-            <tr><th>예식 29일 이내</th><td>환불 불가 / 예식일 변경 1회 무료</td></tr>
-            <tr><th>당사 사정으로 진행 불가</th><td>계약금 2배 반환</td></tr>
-          </tbody>
-        </table>
+      <div class="disc">
+        <ul>
+          <li><span>당일 계약</span><b>1만 원</b></li>
+          <li><span>짝꿍 소개 <small>(소개한 분·받은 분 각각)</small></span><b>1만 원</b></li>
+          <li><span>계약 후기</span><b>2만 원</b></li>
+          <li><span>본식 후기</span><b>2만 원</b></li>
+        </ul>
+        <p>중복 적용 가능 · 최대 할인 <b>라이트·단일 3만 원 / 양가 5만 원</b></p>
       </div>
     </div>
   </section>
 
-  <!-- ===== 예상 견적 ===== -->
-  <section class="quote" id="quote">
+  <!-- ===== 서비스 구성 ===== -->
+  <section id="service" class="service">
     <div class="container">
       <div class="section-head">
-        <p class="eyebrow">Estimate</p>
-        <h2 class="section-title">몇 가지만 답하면, 예상 견적이 나와요</h2>
-        <p class="section-desc">다섯 가지 질문으로 우리 예식에 맞는 상품과 금액을 확인해 보세요.</p>
+        <p class="eyebrow">Service</p>
+        <h2 class="section-title">접수부터 자료까지, 한 번에</h2>
+        <p class="section-desc">모든 상품에 기본으로 포함됩니다.</p>
         <div class="divider"></div>
       </div>
 
-      <div class="wiz" id="wiz">
-        <div class="wiz-progress" id="wizProg" aria-hidden="true"></div>
-        <p class="wiz-count" id="wizCount"></p>
-
-        <!-- 1. 예식 정보 -->
-        <div class="wiz-step" data-step="1">
-          <p class="wiz-q">언제, 어디에서 예식을 올리시나요?</p>
-          <p class="wiz-sub">예식장 주소를 검색하면 출장비가 견적에 자동으로 반영돼요.</p>
-          <div class="wiz-body wiz-fields">
-            <div class="wiz-field"><label for="qDate">예식일</label><input type="date" id="qDate"></div>
-            <div class="wiz-field"><label for="qTime">예식 시간</label><input type="time" id="qTime" step="1800"></div>
-            <div class="wiz-field addr-box">
-              <label for="qAddr">예식장 주소</label>
-              <div class="addr-row">
-                <input type="text" id="qAddr" placeholder="주소 검색을 눌러 주세요" readonly>
-                <button type="button" class="addr-btn" id="addrBtn">주소 검색</button>
-              </div>
-              <div class="addr-layer" id="addrLayer"><button type="button" class="addr-close" id="addrClose">닫기</button><div id="addrEmbed" style="width:100%;height:100%"></div></div>
-              <button type="button" class="addr-link" id="manualBtn">주소 검색이 안 되면 지역을 직접 선택하세요</button>
-              <div class="addr-manual" id="addrManual">
-                <select id="mSido" aria-label="시·도"></select>
-                <select id="mSgg" aria-label="시·군"></select>
-              </div>
-            </div>
-            <div class="wiz-field addr-box"><label for="qHall">예식장 이름 <small>(선택)</small></label><input type="text" id="qHall" placeholder="예식장 이름"></div>
-            <div class="travel" id="travelBox"><span id="travelText"></span><b id="travelFee"></b></div>
-            <p class="area-note">서비스 지역: 부산·울산·대구·경남·경북, 광주·전남·전북</p>
-          </div>
+      <div class="svc-groups">
+        <div class="svc-group">
+          <div class="head"><div><h3>현장 응대</h3><p class="en">RECEPTION</p></div><span class="num">01</span></div>
+          <dl>
+            <div><dt>하객 응대</dt></div>
+            <div><dt>식권 관리</dt></div>
+            <div><dt>계좌이체 하객</dt></div>
+          </dl>
         </div>
-
-        <!-- 2. 맡길 쪽 -->
-        <div class="wiz-step" data-step="2">
-          <p class="wiz-q">어느 쪽 축의대를 맡기실 건가요?</p>
-          <div class="wiz-body">
-            <div class="wiz-grid c2">
-              <button type="button" class="choice" data-k="scope" data-v="one"><span class="ct">한쪽만</span><span class="cd">신랑 측 또는 신부 측</span></button>
-              <button type="button" class="choice" data-k="scope" data-v="both"><span class="ct">양쪽 모두</span><span class="cd">신랑 측과 신부 측 함께</span></button>
-            </div>
-            <div id="sideWrap" style="display:none">
-              <p class="wiz-label">어느 쪽인가요?</p>
-              <div class="wiz-grid c2">
-                <button type="button" class="choice sm" data-k="side" data-v="신랑 측"><span class="ct">신랑 측</span></button>
-                <button type="button" class="choice sm" data-k="side" data-v="신부 측"><span class="ct">신부 측</span></button>
-              </div>
-            </div>
-          </div>
+        <div class="svc-group">
+          <div class="head"><div><h3>기록 · 정산</h3><p class="en">RECORD &amp; SETTLEMENT</p></div><span class="num">02</span></div>
+          <dl>
+            <div><dt>봉투 고유번호</dt></div>
+            <div><dt>전자장부</dt></div>
+            <div><dt>정산·인계확인서</dt></div>
+            <div><dt>축의금 보관</dt></div>
+          </dl>
         </div>
-
-        <!-- 3. 봉투 접수량 -->
-        <div class="wiz-step" data-step="3">
-          <p class="wiz-q">축의 봉투는 몇 건쯤 예상하세요?</p>
-          <p class="wiz-sub">하객 수보다 조금 적게 잡으시면 돼요.</p>
-          <div class="wiz-body">
-            <p class="wiz-label" id="cntLabelG">신랑 측</p>
-            <div class="wiz-grid c4" id="cntG"></div>
-            <div id="cntWrapB">
-              <p class="wiz-label">신부 측</p>
-              <div class="wiz-grid c4" id="cntB"></div>
-            </div>
-          </div>
+        <div class="svc-group">
+          <div class="head"><div><h3>예식 후 자료</h3><p class="en">AFTER SERVICE</p></div><span class="num">03</span></div>
+          <dl>
+            <div><dt>영상 기록</dt></div>
+            <div><dt>화환 촬영</dt></div>
+            <div><dt>카카오톡 자료 패키지</dt></div>
+          </dl>
         </div>
+      </div>
 
-        <!-- 4. 상품 · 정산 -->
-        <div class="wiz-step" data-step="4">
-          <p class="wiz-q">상품과 정산 방식을 골라 주세요</p>
-          <div class="wiz-body">
-            <p class="wiz-label">상품</p>
-            <div class="wiz-grid c2" id="planChoices">
-              <button type="button" class="choice" data-k="plan" data-v="light"><span class="ct">라이트</span><span class="cd">1인 · 소규모 예식 · 100건까지</span><span class="cp"><s>20만</s>18만 원</span></button>
-              <button type="button" class="choice" data-k="plan" data-v="single"><span class="ct">단일</span><span class="cd">2인 1팀 · 200건까지</span><span class="cp"><s>36만</s>31만 원</span></button>
-            </div>
-            <div class="wiz-grid" id="planBoth" style="display:none">
-              <button type="button" class="choice sel" data-k="plan" data-v="both" tabindex="-1"><span class="ct">양가</span><span class="cd">4인 2팀 · 한 측 200건까지</span><span class="cp"><s>68만</s>60만 원</span></button>
-            </div>
-            <p class="wiz-label">정산 방식</p>
-            <div class="wiz-grid c2">
-              <button type="button" class="choice" data-k="settle" data-v="밀봉형"><span class="ct">밀봉형</span><span class="cd">금액 확인 없이 봉투를 바로 밀봉</span></button>
-              <button type="button" class="choice" data-k="settle" data-v="권종별 계수형"><span class="ct">권종별 계수형</span><span class="cd">현금을 분리해 권종별로 계수</span></button>
-            </div>
-            <p class="wiz-hint" id="settleHint"></p>
-          </div>
-        </div>
+      <div class="deadline">
+        <div><span>자료 송부</span><b>당일 송부 <small>(예식 일정별 시간 상이)</small></b></div>
+      </div>
 
-        <!-- 5. 할인 -->
-        <div class="wiz-step" data-step="5">
-          <p class="wiz-q">받으실 수 있는 할인이 있나요?</p>
-          <p class="wiz-sub">해당하는 것을 모두 골라 주세요. 없으면 바로 견적을 보셔도 돼요.</p>
-          <div class="wiz-body wiz-grid c2">
-            <button type="button" class="choice sm dc" data-amt="10000" data-name="당일 계약"><span class="ct">당일 계약</span><span class="cd">상담 당일 계약 시 · 1만 원</span></button>
-            <button type="button" class="choice sm dc" data-amt="10000" data-name="짝꿍 소개"><span class="ct">짝꿍 소개</span><span class="cd">소개로 오셨다면 · 1만 원</span></button>
-            <button type="button" class="choice sm dc" data-amt="20000" data-name="계약 후기"><span class="ct">계약 후기</span><span class="cd">블로그·인스타그램 · 2만 원</span></button>
-            <button type="button" class="choice sm dc" data-amt="20000" data-name="본식 후기" data-payback="1"><span class="ct">본식 후기</span><span class="cd">예식 후 페이백 · 2만 원</span></button>
-          </div>
-          <p class="wiz-hint" id="capHint"></p>
-        </div>
-
-        <!-- 결과 -->
-        <div class="result" id="result">
-          <div class="arch">
-            <img class="sym" src="img/barun-symbol-champagne.svg" alt="">
-            <p class="r-eyebrow">ESTIMATE</p>
-            <p class="r-title">바른 축의대 예상 견적</p>
-            <p class="r-meta" id="rMeta"></p>
-            <p class="r-total" id="rTotal"></p>
-            <p class="r-sel" id="rSel"></p>
-            <ul class="r-lines">
-              <li><span>상품 금액 (오픈가)</span><b id="rBase"></b></li>
-              <li><span>추가 접수</span><b id="rExtra"></b></li>
-              <li><span>출장비</span><b id="rTravel"></b></li>
-              <li><span>할인</span><b id="rDc"></b></li>
-            </ul>
-            <div class="r-pay"><p>계약금 <span id="rDeposit"></span> · 잔금은 예식 전날까지</p><p id="rPayback"></p></div>
-            <div class="notice" role="note" aria-label="개인정보 처리 안내">
-              <p class="n-title">견적 상담을 위해 아래 정보가 처리됩니다</p>
-              <dl>
-                <div><dt>목적</dt><dd>견적 안내와 예약 상담</dd></div>
-                <div><dt>항목</dt><dd>견적 내용(예식일·예식장·상품 등), 카카오톡 프로필, 상담 중 알려 주신 성함·연락처</dd></div>
-                <div><dt>보유 기간</dt><dd><span class="key">상담 종료 후 6개월까지 보관 후 파기</span></dd></div>
-                <div><dt>처리 근거</dt><dd>고객 요청에 따른 계약 체결 과정의 조치 (개인정보 보호법 제15조 제1항 제4호)</dd></div>
-              </dl>
-              <p class="n-link"><a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침 보기</a></p>
-            </div>
-            <div class="r-btns" style="margin-top:12px">
-              <div id="kakaoBtns" style="display:grid;gap:10px"></div>
-              <button type="button" class="q-again" id="qAgain">처음부터 다시 하기</button>
-            </div>
-            <p class="q-toast" id="qToast"></p>
-          </div>
-          <p class="r-note" id="rNote">오픈가는 정규 운영 시작일부터 3개월간 적용되며, 최종 금액은 상담 후 확정됩니다.</p>
-        </div>
-
-        <div class="wiz-nav" id="wizNav">
-          <button type="button" class="wiz-back" id="wizBack">← 이전</button>
-          <button type="button" class="wiz-next" id="wizNext">다음</button>
-        </div>
+      <div class="svc-more">
+      <div class="svc-col">
+      <h3 class="sub-title">정산 방식</h3>
+      <div class="settle">
+        <div class="opt"><span class="tag">라이트 고정</span><h4>밀봉형</h4><p>봉투를 그대로 밀봉해 전달</p></div>
+        <div class="or">또는</div>
+        <div class="opt"><h4>권종별 계수형</h4><p>현금 분리 후 권종별 계수</p></div>
+      </div>
+      <p class="settle-cap">단일·양가는 두 방식 중 선택, 라이트는 <b>밀봉형으로 고정</b>됩니다.</p>
+      <p class="note">밀봉형은 확인하지 않은 축의금 금액을 장부나 정산서에 임의로 기재하지 않습니다.</p>
+      </div>
+      <div class="svc-col">
+      <h3 class="sub-title">미리 정해 두는 것들</h3>
+      <ul class="bullets">
+        <li><b>응대 컨셉</b><span>지인처럼 자연스러운 응대 선택 가능</span></li>
+        <li><b>추가 식권</b><span>요청 시 배부 기준 사전 선택</span></li>
+        <li><b>식권 수량</b><span>예식 당일 수령 후 확인</span></li>
+        <li><b>맡기는 물품</b><span>보관·인계 방식 계약 후 협의</span></li>
+      </ul>
+      </div>
       </div>
     </div>
   </section>
@@ -797,29 +708,29 @@
         <div class="phase">
           <h3>예식 전</h3>
           <ol>
-            <li><span class="when">상담</span><span>카카오 채널로 일정·장소·예상 접수량 확인 후 견적 안내</span></li>
-            <li><span class="when">계약</span><span>전자계약서 체결과 계약금 입금으로 예약 확정, 사업자등록증 전달</span></li>
-            <li><span class="when">D-14</span><span>인수자·관계 구분·식권 정책·계좌이체 응대·정산 방식·응대 컨셉 사전 설문</span></li>
-            <li><span class="when">D-1</span><span>잔금 완납 확인, 담당자 이름·연락처·도착 예정 시간 안내</span></li>
+            <li><span class="when">상담</span><span>카카오 채널로 견적 안내</span></li>
+            <li><span class="when">계약</span><span>전자계약·계약금 입금으로 확정</span></li>
+            <li><span class="when">D-14</span><span>진행 방식 사전 설문</span></li>
+            <li><span class="when">D-1</span><span>잔금 확인·담당자 안내</span></li>
           </ol>
         </div>
         <div class="phase">
           <h3>예식 당일</h3>
           <ol>
-            <li><span class="when">80분 전</span><span>현장 도착, 혼주와 신랑·신부께 인사, 장비·안내문 세팅</span></li>
-            <li><span class="when">70분 전</span><span>카메라 녹화 시작 및 작동 확인</span></li>
-            <li><span class="when">접수 중</span><span>식권 배부, 봉투 고유번호 부여, 전자장부 기록</span></li>
-            <li><span class="when">접수 마감</span><span>선택한 방식으로 정산, 정산·인계확인서 작성</span></li>
-            <li><span class="when">최종 인계</span><span>인수자와 내용 확인, 서명 후 축의금·물품 인계</span></li>
+            <li><span class="when">80분 전</span><span>현장 도착·장비 세팅</span></li>
+            <li><span class="when">70분 전</span><span>영상 녹화 시작</span></li>
+            <li><span class="when">접수 중</span><span>접수·식권 배부·장부 기록</span></li>
+            <li><span class="when">접수 마감</span><span>정산·확인서 작성</span></li>
+            <li><span class="when">최종 인계</span><span>서명 후 축의금 인계</span></li>
           </ol>
         </div>
         <div class="phase">
           <h3>예식 후</h3>
           <ol>
-            <li><span class="when">종료 후</span><span>전체 화환 촬영</span></li>
-            <li><span class="when">송부</span><span>엑셀장부·PDF 정산서·영상 링크·화환 사진을 카카오톡으로 송부 (당일 오후 5시까지, 오후 3시 이후 예식은 종료 후 3시간 이내)</span></li>
+            <li><span class="when">종료 후</span><span>화환 촬영</span></li>
+            <li><span class="when">송부</span><span>카카오톡으로 자료 당일 송부</span></li>
             <li><span class="when">발급</span><span>현금영수증 발급</span></li>
-            <li><span class="when">후기</span><span>후기 게시글 링크 확인 후 상품별 한도 내 페이백</span></li>
+            <li><span class="when">후기</span><span>후기 확인 후 페이백</span></li>
           </ol>
         </div>
       </div>
@@ -832,27 +743,20 @@
       <div class="section-head">
         <p class="eyebrow">Our Responsibility</p>
         <h2 class="section-title">책임 범위를 미리, 분명하게</h2>
-        <p class="section-desc">접수 개시부터 지정된 인수자의 서명으로 인계가 끝날 때까지 바른 축의대가 관리합니다.</p>
+        <p class="section-desc">접수부터 서명 인계까지 바른 축의대가 책임집니다.</p>
       </div>
       <div class="table-wrap">
         <table>
           <thead><tr><th>상황</th><th>처리 기준</th></tr></thead>
           <tbody>
-            <tr><th>당사 과실로 축의금 분실·도난</th><td class="strong">확인된 피해금액 전액 배상</td></tr>
-            <tr><th>당사 귀책으로 접수·정산 금액 오류</th><td class="strong">착오금액 전액 배상 + 해당 예식 서비스 비용 전액 환불</td></tr>
-            <tr><th>식권 관리 소홀로 추가 식대 발생</th><td class="strong">증빙으로 확인되는 피해분 보상</td></tr>
-            <tr><th>하객 기재 금액과 실제 금액 불일치</th><td>당사 귀책이 아니면 보상 제외, 확인 시 혼주께 고지</td></tr>
-            <tr><th>정상 인계·서명 완료 후 분실</th><td>원칙적으로 보상 제외</td></tr>
-            <tr><th>천재지변·강도 등 불가항력</th><td>당사 고의·과실이 없는 경우 보상 제외</td></tr>
+            <tr><th>당사 과실 분실·도난</th><td class="strong">피해금액 전액 배상</td></tr>
+            <tr><th>당사 귀책 금액 오류</th><td class="strong">착오금액 배상 + 서비스 비용 환불</td></tr>
+            <tr><th>식권 관리 소홀</th><td class="strong">확인된 피해분 보상</td></tr>
+            <tr><th>보상 제외</th><td>하객 기재 오류 · 인계 완료 후 분실 · 불가항력</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="evidence">
-        <div><b>영상 기록</b>카메라 녹화, 3개월 보관</div>
-        <div><b>번호 대조</b>봉투 고유번호와 전자장부 대조</div>
-        <div><b>서명 서류</b>인수자 서명 확인서와 PDF 보관</div>
-      </div>
-      <p class="note">자세한 책임 범위와 기준은 계약서에 명시되어 있으며, 실제 보상 여부는 영상·장부·서명 서류 등으로 사실관계를 확인해 판단합니다.</p>
+      <p class="note">세부 기준은 계약서에 명시되며, 영상·장부·서명 서류로 사실관계를 확인합니다.</p>
     </div>
   </section>
 
@@ -910,13 +814,13 @@
       <div class="section-head">
         <p class="eyebrow">Reservation</p>
         <h2 class="section-title">예약 및 문의</h2>
-        <p class="section-desc">예식 일정과 장소, 예상 접수량을 알려주시면 견적을 안내해 드립니다.</p>
+        <p class="section-desc">카카오톡으로 편하게 상담해 주세요.</p>
       </div>
       <div class="contact-cards">
         <a class="contact-card" href="https://pf.kakao.com/_xlKGxeX/chat" target="_blank" rel="noopener">
           <p class="label">KAKAOTALK</p>
           <h3>부산경상점</h3>
-          <p>부산·울산·경남·경북 상담</p>
+          <p>부산·울산·경남 상담</p>
         </a>
         <a class="contact-card" href="https://pf.kakao.com/_pUHxeX/chat" target="_blank" rel="noopener">
           <p class="label">KAKAOTALK</p>
@@ -928,6 +832,156 @@
           <h3>@bareun_reception</h3>
           <p>현장 소식과 후기</p>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 예상 견적 ===== -->
+  <section class="quote" id="quote">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Estimate</p>
+        <h2 class="section-title">간편하게 보는 예상 견적</h2>
+        <p class="section-desc">다섯 가지 질문으로 예상 금액을 확인해 보세요.</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="wiz" id="wiz">
+        <div class="wiz-progress" id="wizProg" aria-hidden="true"></div>
+        <p class="wiz-count" id="wizCount"></p>
+
+        <!-- 1. 예식 정보 -->
+        <div class="wiz-step" data-step="1">
+          <p class="wiz-q">언제, 어디에서 예식을 올리시나요?</p>
+          <p class="wiz-sub">주소를 검색하면 출장비가 자동 반영돼요.</p>
+          <div class="wiz-body wiz-fields">
+            <div class="wiz-field date-field"><label for="qDate">예식일 <small>(주말·공휴일)</small></label><input type="text" id="qDate" placeholder="날짜 선택" readonly autocomplete="off">
+              <div class="cal" id="cal" role="dialog" aria-label="예식일 선택"></div><p class="date-note" id="dateNote"></p></div>
+            <div class="wiz-field"><label for="qTime">예식 시간</label><select id="qTime"><option value="">시간 선택</option><option value="09:00">오전 9:00</option><option value="09:30">오전 9:30</option><option value="10:00">오전 10:00</option><option value="10:30">오전 10:30</option><option value="11:00">오전 11:00</option><option value="11:30">오전 11:30</option><option value="12:00">오후 12:00</option><option value="12:30">오후 12:30</option><option value="13:00">오후 1:00</option><option value="13:30">오후 1:30</option><option value="14:00">오후 2:00</option><option value="14:30">오후 2:30</option><option value="15:00">오후 3:00</option><option value="15:30">오후 3:30</option><option value="16:00">오후 4:00</option><option value="16:30">오후 4:30</option><option value="17:00">오후 5:00</option><option value="17:30">오후 5:30</option><option value="18:00">오후 6:00</option><option value="18:30">오후 6:30</option><option value="19:00">오후 7:00</option><option value="19:30">오후 7:30</option></select></div>
+            <div class="wiz-field addr-box">
+              <label for="qAddr">예식장 주소</label>
+              <div class="addr-row">
+                <input type="text" id="qAddr" placeholder="주소 검색을 눌러 주세요" readonly>
+                <button type="button" class="addr-btn" id="addrBtn">주소 검색</button>
+              </div>
+              <div class="addr-layer" id="addrLayer"><button type="button" class="addr-close" id="addrClose">닫기</button><div id="addrEmbed" style="width:100%;height:100%"></div></div>
+              <button type="button" class="addr-link" id="manualBtn">주소 검색이 안 되면 지역 직접 선택</button>
+              <div class="addr-manual" id="addrManual">
+                <select id="mSido" aria-label="시·도"></select>
+                <select id="mSgg" aria-label="시·군"></select>
+              </div>
+            </div>
+            <div class="wiz-field addr-box"><label for="qHall">예식장 이름 <small>(선택)</small></label><input type="text" id="qHall" placeholder="예식장 이름"></div>
+            <div class="travel" id="travelBox"><span id="travelText"></span><b id="travelFee"></b></div>
+            <p class="area-note">서비스 지역 · 부산·울산·경남(일부), 광주·전라권</p>
+          </div>
+        </div>
+
+        <!-- 2. 맡길 쪽 -->
+        <div class="wiz-step" data-step="2">
+          <p class="wiz-q">어느 쪽 축의대를 맡기실 건가요?</p>
+          <div class="wiz-body">
+            <div class="wiz-grid c2">
+              <button type="button" class="choice" data-k="scope" data-v="one"><span class="ct">한쪽만</span><span class="cd">신랑 또는 신부 측</span></button>
+              <button type="button" class="choice" data-k="scope" data-v="both"><span class="ct">양쪽 모두</span><span class="cd">신랑·신부 측 함께</span></button>
+            </div>
+            <div id="sideWrap" style="display:none">
+              <p class="wiz-label">어느 쪽인가요?</p>
+              <div class="wiz-grid c2">
+                <button type="button" class="choice sm" data-k="side" data-v="신랑 측"><span class="ct">신랑 측</span></button>
+                <button type="button" class="choice sm" data-k="side" data-v="신부 측"><span class="ct">신부 측</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. 봉투 접수량 -->
+        <div class="wiz-step" data-step="3">
+          <p class="wiz-q">축의 봉투는 몇 건쯤 예상하세요?</p>
+          <p class="wiz-sub">하객 수보다 조금 적게 잡아 주세요.</p>
+          <div class="wiz-body">
+            <p class="wiz-label" id="cntLabelG">신랑 측</p>
+            <div class="wiz-grid c4" id="cntG"></div>
+            <div id="cntWrapB">
+              <p class="wiz-label">신부 측</p>
+              <div class="wiz-grid c4" id="cntB"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. 상품 · 정산 -->
+        <div class="wiz-step" data-step="4">
+          <p class="wiz-q">상품과 정산 방식을 골라 주세요</p>
+          <div class="wiz-body">
+            <p class="wiz-label">상품</p>
+            <div class="wiz-grid c2" id="planChoices">
+              <button type="button" class="choice" data-k="plan" data-v="light"><span class="ct">라이트</span><span class="cd">1인 · 100건까지</span><span class="cp"><s>20만</s>18만 원</span></button>
+              <button type="button" class="choice" data-k="plan" data-v="single"><span class="ct">단일</span><span class="cd">2인 · 200건까지</span><span class="cp"><s>36만</s>31만 원</span></button>
+            </div>
+            <div class="wiz-grid" id="planBoth" style="display:none">
+              <button type="button" class="choice sel" data-k="plan" data-v="both" tabindex="-1"><span class="ct">양가</span><span class="cd">4인 · 한 측 200건까지</span><span class="cp"><s>68만</s>60만 원</span></button>
+            </div>
+            <p class="wiz-label">정산 방식</p>
+            <div class="wiz-grid c2">
+              <button type="button" class="choice" data-k="settle" data-v="밀봉형"><span class="ct">밀봉형</span><span class="cd">봉투 그대로 밀봉</span></button>
+              <button type="button" class="choice" data-k="settle" data-v="권종별 계수형"><span class="ct">권종별 계수형</span><span class="cd">권종별 현금 계수</span></button>
+            </div>
+            <p class="wiz-hint" id="settleHint"></p>
+          </div>
+        </div>
+
+        <!-- 5. 할인 -->
+        <div class="wiz-step" data-step="5">
+          <p class="wiz-q">받으실 수 있는 할인이 있나요?</p>
+          <p class="wiz-sub">해당하는 것만 골라 주세요. 없으면 바로 견적 보기</p>
+          <div class="wiz-body wiz-grid c2">
+            <button type="button" class="choice sm dc" data-amt="10000" data-name="당일 계약"><span class="ct">당일 계약</span><span class="cd">1만 원</span></button>
+            <button type="button" class="choice sm dc" data-amt="10000" data-name="짝꿍 소개"><span class="ct">짝꿍 소개</span><span class="cd">1만 원</span></button>
+            <button type="button" class="choice sm dc" data-amt="20000" data-name="계약 후기"><span class="ct">계약 후기</span><span class="cd">2만 원</span></button>
+            <button type="button" class="choice sm dc" data-amt="20000" data-name="본식 후기" data-payback="1"><span class="ct">본식 후기</span><span class="cd">2만 원 · 예식 후 페이백</span></button>
+          </div>
+          <p class="wiz-hint" id="capHint"></p>
+        </div>
+
+        <!-- 결과 -->
+        <div class="result" id="result">
+          <div class="arch">
+            <img class="sym" src="img/barun-symbol-champagne.svg" alt="">
+            <p class="r-eyebrow">ESTIMATE</p>
+            <p class="r-title">바른 축의대 예상 견적</p>
+            <p class="r-meta" id="rMeta"></p>
+            <p class="r-total" id="rTotal"></p>
+            <p class="r-sel" id="rSel"></p>
+            <ul class="r-lines">
+              <li><span>상품 (오픈가)</span><b id="rBase"></b></li>
+              <li><span>추가 접수</span><b id="rExtra"></b></li>
+              <li><span>출장비</span><b id="rTravel"></b></li>
+              <li><span>할인</span><b id="rDc"></b></li>
+            </ul>
+            <div class="r-pay"><p>계약금 <span id="rDeposit"></span> · 잔금 예식 전날까지</p><p id="rPayback"></p></div>
+            <div class="notice" role="note" aria-label="개인정보 처리 안내">
+              <p class="n-title">견적 상담 시 처리되는 정보</p>
+              <dl>
+                <div><dt>목적</dt><dd>견적 안내와 예약 상담</dd></div>
+                <div><dt>항목</dt><dd>견적 내용, 카카오톡 프로필, 상담 중 알려 주신 성함·연락처</dd></div>
+                <div><dt>보유 기간</dt><dd><span class="key">상담 종료 6개월 후 파기</span></dd></div>
+                <div><dt>처리 근거</dt><dd>계약 체결을 위한 조치 (개인정보 보호법 제15조 제1항 제4호)</dd></div>
+              </dl>
+              <p class="n-link"><a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침 보기</a></p>
+            </div>
+            <div class="r-btns" style="margin-top:12px">
+              <div id="kakaoBtns" style="display:grid;gap:10px"></div>
+              <button type="button" class="q-again" id="qAgain">처음부터 다시 하기</button>
+            </div>
+            <p class="q-toast" id="qToast">버튼을 누르면 견적이 복사돼요</p>
+          </div>
+          <p class="r-note" id="rNote">최종 금액은 상담 후 확정됩니다.</p>
+        </div>
+
+        <div class="wiz-nav" id="wizNav">
+          <button type="button" class="wiz-back" id="wizBack">← 이전</button>
+          <button type="button" class="wiz-next" id="wizNext">다음</button>
+        </div>
       </div>
     </div>
   </section>
@@ -972,7 +1026,7 @@
     };
     const PLANS = {
       light:  { name: '라이트', crew: '1인',     regular: 200000, price: 180000, base: 100, extra: 50000,  deposit: 100000, cap: 30000 },
-      single: { name: '단일',   crew: '2인 1팀', regular: 360000, price: 310000, base: 200, extra: 100000, deposit: 100000, cap: 50000 },
+      single: { name: '단일',   crew: '2인 1팀', regular: 360000, price: 310000, base: 200, extra: 100000, deposit: 100000, cap: 30000 },
       both:   { name: '양가',   crew: '4인 2팀', regular: 680000, price: 600000, base: 200, extra: 100000, deposit: 200000, cap: 50000 }
     };
     const COUNTS = [{ v: 100, t: '100건 이하' }, { v: 200, t: '101~200건' }, { v: 300, t: '201~300건' }, { v: 301, t: '300건 초과' }];
@@ -984,13 +1038,17 @@
     // TODO: 출장비 기준이 바뀌면 이 표만 수정하세요
     // 부산경상점: 구간별 고정 금액(예식 1건당, 상품·인원과 관계없이 동일)
     // 순천·여수 등 전라권은 광주전라점이 배정되므로 아래 TRAVEL_GWANGJU 표를 따릅니다
+    // 부산경상점: 고객 청구용 출장비 (서면 출발 편도 소요시간 기준 정액, 예식 1건당 1회)
     const TRAVEL_BUSAN = [
-      { zone: '기본',  fee: 0,      areas: [['부산', '*'], ['경남', '김해시'], ['경남', '양산시']] },
-      { zone: '1구간', fee: 40000,  areas: [['경남', '창원시'], ['경남', '밀양시'], ['울산', '*']] },
-      { zone: '2구간', fee: 70000,  areas: [['경남', '함안군'], ['경남', '창녕군'], ['경남', '거제시'], ['경북', '청도군']] },
-      { zone: '3구간', fee: 120000, areas: [['경북', '경주시'], ['경남', '진주시'], ['경북', '포항시'], ['경남', '사천시'], ['대구', '*'], ['경남', '통영시']] },
-      { zone: '4구간', fee: 200000, areas: [['경남', '하동군'], ['경남', '남해군'], ['경북', '영덕군'], ['경북', '안동시']] }
+      { zone: '출장비 없음', fee: 0,      areas: [['부산', '*'], ['경남', '김해시'], ['경남', '양산시']] },
+      { zone: '진해',       fee: 50000,  areas: [['경남', '창원시 진해구']] },
+      { zone: '창원',       fee: 60000,  areas: [['경남', '창원시']] },
+      { zone: '밀양·울산',  fee: 70000,  areas: [['경남', '밀양시'], ['울산', '*']] },
+      { zone: '함안·창녕·거제', fee: 100000, areas: [['경남', '함안군'], ['경남', '창녕군'], ['경남', '거제시']] }
     ];
+    // 부산경상점 서비스 불가 지역 예시 (직접 선택 목록용). 출장비 표에 없는 부산·울산·경남·경북·대구 지역은 모두 서비스 불가
+    const NO_SERVICE = [['경북', '청도군'], ['경남', '진주시'], ['경북', '경주시'], ['경북', '포항시'], ['경남', '사천시'], ['대구', '*'],
+      ['경남', '통영시'], ['경남', '하동군'], ['경북', '영덕군'], ['경남', '남해군'], ['경북', '안동시']];
     // 광주전라점: 직원 1인당 여비 × 투입 인원(라이트 1인, 단일 2인, 양가 4인)
     const TRAVEL_GWANGJU = [
       ['광주', '*', 0], ['전북', '전주시', 0],
@@ -1014,20 +1072,23 @@
     function findTravel() {
       const sido = shortSido(loc.sido), sgg = loc.sgg;
       if (!sido) return null;
+      if (loc.needSgg) return { pending: true };
       const hit = ([sd, g]) => sd === sido && (g === '*' || sgg.startsWith(g));
-      for (const z of TRAVEL_BUSAN) if (z.areas.some(hit)) return { branch: '부산경상점', label: z.zone, fixed: z.fee };
+      if (NO_SERVICE.some(hit)) return { branch: '', label: '서비스 불가 지역', unsupported: true };
+      for (const z of TRAVEL_BUSAN) if (z.areas.some(hit)) return { branch: '부산경상점', label: '', fixed: z.fee };
       const g = TRAVEL_GWANGJU.find(hit);
       if (g) {
         const per = (sgg.startsWith('무안군') && /남악/.test(loc.bname)) ? NAMAK_FEE : g[2];
         return { branch: '광주전라점', label: per ? `1인 여비 ${won(per)}` : '기본 지역', perStaff: per };
       }
       // 표에 없지만 서비스 권역 안인 지역: 예약 가능, 출장비는 상담 시 안내
-      if (SERVICE_AREA['부산경상점'].includes(sido)) return { branch: '부산경상점', label: '담당', consult: true };
+      // 부산경상점: 출장비 표(편도 1시간 40분 이내) 밖이면 서비스 불가
+      if (SERVICE_AREA['부산경상점'].includes(sido)) return { branch: '', label: '서비스 불가 지역', unsupported: true };
       if (SERVICE_AREA['광주전라점'].includes(sido)) return { branch: '광주전라점', label: '담당', consult: true };
       return { branch: '', label: '서비스 지역 아님', unsupported: true };
     }
     function travelFee(t, plan) {
-      if (!t || t.unsupported || t.consult) return null;
+      if (!t || t.unsupported || t.consult || t.pending) return null;
       if ('fixed' in t) return t.fixed;
       return t.perStaff * (STAFF[plan] || 2);
     }
@@ -1035,11 +1096,13 @@
       const t = findTravel();
       $('travelBox').classList.toggle('show', !!t);
       if (!t) return;
-      const where = [loc.sido, loc.sgg].filter(Boolean).join(' ');
+      const where = [loc.sido, loc.sgg].filter(x => x && x !== '기타').join(' ');
       $('travelBox').classList.toggle('warn', !!t.unsupported);
-      if (t.unsupported) { const w = [loc.sido, loc.sgg].filter(x => x && x !== '기타').join(' '); $('travelText').textContent = `죄송해요. 선택하신 지역${w ? `(${w})` : ''}은 현재 서비스 지역이 아니라 축의대 예약이 어려워요.`; $('travelFee').textContent = '예약 불가'; return; }
-      if (t.consult) { $('travelText').textContent = `${where} · ${t.branch} 담당 · 출장비 기준표에 없는 지역이라 출장비는 업체 문의가 필요해요`; $('travelFee').textContent = '업체 문의 필요'; return; }
-      $('travelText').textContent = `${where} · ${t.branch} ${t.label}` + (t.branch === '광주전라점' ? ' (광주전라점 일정이 어려우면 별도 협의)' : '');
+      $('travelBox').classList.toggle('pend', !!t.pending);
+      if (t.pending) { $('travelText').textContent = '시·군까지 선택해야 출장비가 확인돼요'; $('travelFee').textContent = ''; return; }
+      if (t.unsupported) { const w = [loc.sido, loc.sgg].filter(x => x && x !== '기타').join(' '); $('travelText').textContent = `${w ? w + ' · ' : ''}서비스 불가 지역이라 예약이 어려워요`; $('travelFee').textContent = '예약 불가'; return; }
+      if (t.consult) { $('travelText').textContent = `${where} · ${t.branch} 담당`; $('travelFee').textContent = '업체 문의 필요'; return; }
+      $('travelText').textContent = `${where} · ${t.branch} ${t.label}`.trim();
       $('travelFee').textContent = 'fixed' in t ? (t.fixed ? won(t.fixed) : '출장비 없음') : (t.perStaff ? '인원에 따라 계산' : '출장비 없음');
     }
 
@@ -1059,7 +1122,7 @@
         oncomplete: d => {
           $('qAddr').value = d.roadAddress || d.jibunAddress || d.address;
           if (d.buildingName && !$('qHall').value) $('qHall').value = d.buildingName;
-          Object.assign(loc, { sido: d.sido, sgg: d.sigungu, bname: d.bname || '' });
+          Object.assign(loc, { sido: d.sido, sgg: d.sigungu, bname: d.bname || '', needSgg: false });
           $('addrLayer').classList.remove('open'); showTravel(); render();
         }
       }).embed($('addrEmbed'));
@@ -1070,18 +1133,21 @@
     // 직접 선택 (주소 검색이 안 될 때)
     const MANUAL = {};
     TRAVEL_BUSAN.forEach(z => z.areas.forEach(([sd, g]) => (MANUAL[sd] = MANUAL[sd] || []).push(g)));
+    NO_SERVICE.forEach(([sd, g]) => (MANUAL[sd] = MANUAL[sd] || []).push(g));
     TRAVEL_GWANGJU.forEach(([sd, g]) => (MANUAL[sd] = MANUAL[sd] || []).push(g));
     $('mSido').innerHTML = '<option value="">시·도 선택</option>' + Object.keys(MANUAL).map(k => `<option>${k}</option>`).join('') + '<option value="기타">그 외 지역</option>';
     $('mSido').addEventListener('change', () => {
       const sd = $('mSido').value, list = (MANUAL[sd] || []).filter(g => g !== '*');
       $('mSgg').style.display = list.length ? '' : 'none';
       $('mSgg').innerHTML = '<option value="">시·군 선택</option>' + list.map(g => `<option>${g}</option>`).join('') + '<option value="기타">그 외 시·군</option>';
-      Object.assign(loc, { sido: sd === '기타' ? '기타' : sd, sgg: (MANUAL[sd] || []).includes('*') ? '' : '', bname: '' });
+      Object.assign(loc, { sido: sd === '기타' ? '기타' : sd, sgg: '', bname: '', needSgg: list.length > 0 });
+      $('mSgg').classList.toggle('need', list.length > 0);
       $('qAddr').value = sd && sd !== '기타' ? sd : (sd ? '그 외 지역' : '');
       showTravel(); render();
     });
     $('mSgg').addEventListener('change', () => {
-      loc.sgg = $('mSgg').value === '기타' ? '기타' : $('mSgg').value; loc.bname = '';
+      loc.sgg = $('mSgg').value === '기타' ? '기타' : $('mSgg').value; loc.bname = ''; loc.needSgg = !$('mSgg').value;
+      $('mSgg').classList.toggle('need', loc.needSgg);
       $('qAddr').value = [$('mSido').value, $('mSgg').value === '기타' ? '그 외 시·군' : $('mSgg').value].filter(Boolean).join(' ');
       showTravel(); render();
     });
@@ -1093,7 +1159,7 @@
     });
 
     function valid(step) {
-      if (step === 1) { const t = findTravel(); return !(t && t.unsupported); }
+      if (step === 1) { const t = findTravel(); return !(t && (t.unsupported || t.pending)); }
       if (step === 2) return st.scope === 'both' || (st.scope === 'one' && st.side);
       if (step === 3) return st.g && (st.scope === 'one' || st.b);
       if (step === 4) return st.plan && st.settle;
@@ -1135,8 +1201,8 @@
       }
       const settleSeal = document.querySelector('[data-k="settle"][data-v="권종별 계수형"]');
       settleSeal.disabled = st.plan === 'light';
-      $('settleHint').textContent = st.plan === 'light' ? '라이트는 밀봉형으로 진행됩니다.' : '정산 방식에 따른 추가 비용은 없습니다.';
-      if (st.plan) $('capHint').textContent = `할인은 중복 적용되며 ${PLANS[st.plan].name} 상품은 최대 ${won(PLANS[st.plan].cap)}까지입니다.`;
+      $('settleHint').textContent = st.plan === 'light' ? '라이트는 밀봉형 고정' : '정산 방식별 추가 비용 없음';
+      if (st.plan) $('capHint').textContent = `중복 적용 · ${PLANS[st.plan].name} 최대 ${won(PLANS[st.plan].cap)}`;
       if (done) showResult();
     }
 
@@ -1157,7 +1223,7 @@
 
     function meta() {
       const d = $('qDate').value;
-      return [d && d.replace(/-/g, '.'), $('qTime').value, $('qHall').value.trim() || [loc.sido, loc.sgg].filter(s => s && s !== '기타').join(' ')].filter(Boolean).join(' · ');
+      return [d, $('qTime').value, $('qHall').value.trim() || [loc.sido, loc.sgg].filter(s => s && s !== '기타').join(' ')].filter(Boolean).join(' · ');
     }
 
     function showResult() {
@@ -1171,12 +1237,62 @@
       $('rDeposit').textContent = won(r.p.deposit);
       const br = r.t && !r.t.unsupported ? r.t.branch : null;
       $('kakaoBtns').innerHTML = br
-        ? `<button type="button" class="q-btn" data-url="${KAKAO[br]}">견적 복사하고 ${br} 카톡 상담하기</button>`
-        : Object.keys(KAKAO).map((b, i) => `<button type="button" class="q-btn${i ? ' alt' : ''}" data-url="${KAKAO[b]}">견적 복사하고 ${b} 카톡 상담</button>`).join('');
+        ? `<button type="button" class="q-btn" data-url="${KAKAO[br]}">${br} 카톡 상담하기</button>`
+        : Object.keys(KAKAO).map((b, i) => `<button type="button" class="q-btn${i ? ' alt' : ''}" data-url="${KAKAO[b]}">${b} 카톡 상담</button>`).join('');
       $('rTravel').textContent = r.travel === null ? '업체 문의 필요' : (r.travel ? `+${won(r.travel)}` : '없음');
-      $('rNote').textContent = (r.travel === null ? '출장비는 업체 문의가 필요해 제외한 예상 금액입니다. ' : '출장비를 포함한 예상 금액입니다. ') + '오픈가는 정규 운영 시작일부터 3개월간 적용되며, 최종 금액은 상담 후 확정됩니다.';
-      $('rPayback').textContent = (r.payback ? `본식 후기 할인 ${won(r.payback)}은 예식 후 페이백됩니다. ` : '') + (r.consult ? '300건 초과 예식은 상담 시 따로 안내해 드립니다.' : '');
+      $('rNote').textContent = (cal.sel && cal.sel < OPEN_FROM ? '2026년 예식은 업체 문의 필요 · ' : '') + (r.travel === null ? '출장비 제외 금액 · ' : '출장비 포함 · ') + '최종 금액은 상담 후 확정됩니다.';
+      $('rPayback').textContent = (r.payback ? `본식 후기 ${won(r.payback)}은 예식 후 페이백 ` : '') + (r.consult ? '300건 초과는 상담 시 안내' : '');
     }
+
+
+    // ===== 예식일 달력: 토·일·공휴일만 선택 가능 =====
+    // 공휴일 목록 (대체공휴일·선거일 포함). 해가 바뀌면 다음 해 목록을 추가하세요.
+    const HOLIDAYS = {
+      '2026-01-01':'신정','2026-02-16':'설날 연휴','2026-02-17':'설날','2026-02-18':'설날 연휴','2026-03-02':'대체공휴일',
+      '2026-05-01':'노동절','2026-05-05':'어린이날','2026-05-25':'대체공휴일','2026-06-03':'지방선거','2026-07-17':'제헌절',
+      '2026-08-17':'대체공휴일','2026-09-24':'추석 연휴','2026-09-25':'추석','2026-10-05':'대체공휴일','2026-10-09':'한글날','2026-12-25':'크리스마스',
+      '2027-01-01':'신정','2027-02-08':'설날 연휴','2027-02-09':'대체공휴일','2027-03-01':'삼일절','2027-05-03':'대체공휴일',
+      '2027-05-05':'어린이날','2027-05-13':'부처님오신날','2027-07-19':'대체공휴일','2027-08-16':'대체공휴일',
+      '2027-09-14':'추석 연휴','2027-09-15':'추석','2027-09-16':'추석 연휴','2027-10-04':'대체공휴일','2027-10-11':'대체공휴일','2027-12-27':'대체공휴일'
+    };
+    const DOW = ['일','월','화','수','목','금','토'];
+    const pad = n => String(n).padStart(2, '0');
+    const iso = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    // 예약 가능 시작일: 2026년 12월 1일 (이전 날짜는 선택 불가). 이미 지났으면 내일부터
+    const minDate = new Date(Math.max(new Date(2026, 11, 1), new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1)));
+    const maxDate = new Date(2027, 11, 31); // 2028년 이후는 아직 예약을 받지 않음
+    const OPEN_FROM = '2027-01-01';         // 이 날짜부터 예약 가능, 그 전(2026년)은 업체 문의
+    const cal = { y: minDate.getFullYear(), m: minDate.getMonth(), sel: '' };
+    const okDay = d => d >= minDate && d <= maxDate && (d.getDay() === 0 || d.getDay() === 6 || !!HOLIDAYS[iso(d)]);
+    function drawCal() {
+      const first = new Date(cal.y, cal.m, 1), last = new Date(cal.y, cal.m + 1, 0);
+      const canPrev = new Date(cal.y, cal.m, 0) >= minDate, canNext = new Date(cal.y, cal.m + 1, 1) <= maxDate;
+      let h = `<div class="cal-head"><button type="button" data-nav="-1" aria-label="이전 달" ${canPrev ? '' : 'disabled'}>‹</button><b>${cal.y}년 ${cal.m + 1}월</b><button type="button" data-nav="1" aria-label="다음 달" ${canNext ? '' : 'disabled'}>›</button></div><div class="cal-grid">`;
+      h += DOW.map((w, i) => `<span class="dw${i === 0 ? ' sun' : i === 6 ? ' sat' : ''}">${w}</span>`).join('');
+      h += '<span></span>'.repeat(first.getDay());
+      for (let i = 1; i <= last.getDate(); i++) {
+        const d = new Date(cal.y, cal.m, i), k = iso(d), hol = HOLIDAYS[k];
+        const cls = ['day', (d.getDay() === 0 || hol) ? 'red' : d.getDay() === 6 ? 'blue' : '', cal.sel === k ? 'sel' : ''].join(' ');
+        h += `<button type="button" class="${cls}${k < OPEN_FROM ? ' ask' : ''}" data-d="${k}" ${okDay(d) ? '' : 'disabled'}${hol ? ` title="${hol}"` : ''}>${i}</button>`;
+      }
+      $('cal').innerHTML = h + '</div><p class="cal-note">토·일·공휴일만 선택할 수 있어요. 2026년 예식은 업체 문의, 2028년 예식은 아직 예약을 받지 않아요.</p>';
+    }
+    $('qDate').addEventListener('click', e => { e.stopPropagation(); drawCal(); $('cal').classList.toggle('open'); });
+    $('cal').addEventListener('click', e => {
+      e.stopPropagation();
+      const nav = e.target.closest('[data-nav]');
+      if (nav) { cal.m += +nav.dataset.nav; if (cal.m < 0) { cal.m = 11; cal.y--; } if (cal.m > 11) { cal.m = 0; cal.y++; } drawCal(); return; }
+      const b = e.target.closest('[data-d]'); if (!b || b.disabled) return;
+      cal.sel = b.dataset.d;
+      const d = new Date(cal.sel + 'T00:00:00'), hol = HOLIDAYS[cal.sel];
+      $('qDate').value = `${cal.sel.replace(/-/g, '.')} (${hol ? hol : DOW[d.getDay()]})`;
+      $('cal').classList.remove('open');
+      const ask = cal.sel < OPEN_FROM;
+      $('dateNote').className = 'date-note show ' + (ask ? 'ask' : 'ok');
+      $('dateNote').textContent = ask ? '2026년 예식은 업체에 별도 문의해 주세요.' : '예약 가능한 날짜예요.';
+    });
+    document.addEventListener('click', () => $('cal').classList.remove('open'));
 
     document.getElementById('wiz').addEventListener('click', e => {
       const b = e.target.closest('.choice');
@@ -1195,8 +1311,8 @@
     $('wizBack').addEventListener('click', () => { if (st.step > 1) { st.step--; render(); } });
     $('qAgain').addEventListener('click', () => {
       Object.assign(st, { step: 1, scope: null, side: null, g: null, b: null, plan: null, settle: null }); st.dcs.clear();
-      Object.assign(loc, { sido: '', sgg: '', bname: '' }); ['qAddr', 'qHall'].forEach(id => $(id).value = ''); $('mSido').value = ''; showTravel();
-      $('qToast').textContent = ''; render();
+      Object.assign(loc, { sido: '', sgg: '', bname: '', needSgg: false }); ['qAddr', 'qHall'].forEach(id => $(id).value = ''); $('mSido').value = ''; showTravel();
+      $('qToast').textContent = '버튼을 누르면 견적이 복사돼요'; render();
     });
     $('kakaoBtns').addEventListener('click', e => {
       const btn = e.target.closest('.q-btn'); if (!btn) return;
@@ -1207,7 +1323,7 @@
       const r = compute(), d = $('qDate').value;
       const text = [
         '[바른 축의대 예상 견적]',
-        `예식일: ${d ? d.replace(/-/g, '.') : '미정'} ${$('qTime').value}`.trim(),
+        `예식일: ${d || '미정'} ${$('qTime').value}` + (cal.sel && cal.sel < OPEN_FROM ? ' (업체 문의 필요)' : '').trim(),
         `예식장: ${$('qHall').value.trim() || '미정'}`,
         `주소: ${$('qAddr').value || '미정'}`,
         `상품: ${r.p.name} (${r.p.crew})`,
